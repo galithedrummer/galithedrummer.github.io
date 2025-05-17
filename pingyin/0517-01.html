@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>拼音选择题考试</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .question-title {
+      font-weight: bold;
+    }
+    .options label {
+      display: block;
+    }
+    #result {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: green;
+      margin-top: 30px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+  <h1>小学生拼音选择题考试</h1>
+  <form id="quizForm">
+    <!-- 前20题：拼音识词 -->
+    <script>
+      const questions = [
+        {q: "1. “妈妈” 的拼音是：", options: ["A. mā ma", "B. mǎ mǎ", "C. má ma", "D. māmā"], ans: "A"},
+        {q: "2. “苹果” 的拼音是：", options: ["A. píng guǒ", "B. pīng guō", "C. pǐng gǔo", "D. pín guò"], ans: "A"},
+        {q: "3. “小狗” 的拼音是：", options: ["A. xiǎo gǒu", "B. xiǎo gōu", "C. xiáo gǒu", "D. xiào gòu"], ans: "A"},
+        {q: "4. “老师” 的拼音是：", options: ["A. lǎo shī", "B. lǎo sī", "C. láo shī", "D. lào shì"], ans: "A"},
+        {q: "5. “太阳” 的拼音是：", options: ["A. tàiyáng", "B. tài yáng", "C. tài yang", "D. tài yàn"], ans: "B"},
+        {q: "6. “红花” 的拼音是：", options: ["A. hóng huā", "B. hóng huá", "C. hóng hūa", "D. hǒng huā"], ans: "A"},
+        {q: "7. “飞机” 的拼音是：", options: ["A. fēi jī", "B. fēi qī", "C. fē jī", "D. fèi jī"], ans: "A"},
+        {q: "8. “黄瓜” 的拼音是：", options: ["A. huáng guā", "B. huǎng guā", "C. huáng guǎ", "D. huáng gūa"], ans: "A"},
+        {q: "9. “水果” 的拼音是：", options: ["A. shuǐ guǒ", "B. shuǐ guo", "C. shǔi guǒ", "D. suǐ guǒ"], ans: "A"},
+        {q: "10. “桌子” 的拼音是：", options: ["A. zhuō zi", "B. zhōu zi", "C. zhuō zǐ", "D. zhuó zi"], ans: "A"},
+
+        // 声母韵母题
+        {q: "11. “猫” 的声母是：", options: ["A. m", "B. n", "C. l", "D. b"], ans: "A"},
+        {q: "12. “吃” 的声母是：", options: ["A. ch", "B. c", "C. q", "D. zh"], ans: "A"},
+        {q: "13. “雪” 的韵母是：", options: ["A. üe", "B. ie", "C. uai", "D. ai"], ans: "A"},
+        {q: "14. “弟” 的声母是：", options: ["A. d", "B. t", "C. b", "D. l"], ans: "A"},
+        {q: "15. “鸟” 的韵母是：", options: ["A. iao", "B. ao", "C. iou", "D. uai"], ans: "A"},
+
+        // 整体认读
+        {q: "16. “椅子”的“椅”是哪个整体认读音节？", options: ["A. yi", "B. yǐ", "C. i", "D. yí"], ans: "A"},
+        {q: "17. “语” 的声母和韵母是：", options: ["A. y, ü", "B. y, u", "C. g, ü", "D. w, u"], ans: "A"},
+        {q: "18. “爷爷”的“爷”的声母是：", options: ["A. y", "B. j", "C. q", "D. zh"], ans: "A"},
+
+        // 拼读组词
+        {q: "19. 拼音：hǎi tān", options: ["A. 沙滩", "B. 海滩", "C. 海洋", "D. 河滩"], ans: "B"},
+        {q: "20. 拼音：kě lè", options: ["A. 可乐", "B. 渴了", "C. 咳了", "D. 克了"], ans: "A"},
+
+        // 判断正确拼音
+        {q: "21. “风扇”的正确拼音是：", options: ["A. fēng shàn", "B. fēng sàn", "C. fèng shàn", "D. fēng shān"], ans: "A"},
+        {q: "22. “学校”的正确拼音是：", options: ["A. xué xiào", "B. xuě xiào", "C. xué xiāo", "D. xúe xiào"], ans: "A"},
+        {q: "23. “雨伞”的拼音是：", options: ["A. yǔ sǎn", "B. yù sǎn", "C. yǔ shǎn", "D. yú sǎn"], ans: "A"},
+        {q: "24. “看书”的拼音是：", options: ["A. kàn shū", "B. kān shū", "C. kàn shǔ", "D. kān shǔ"], ans: "A"},
+
+        // 词语选择题
+        {q: "25. 拼音：huā duǒ", options: ["A. 花多", "B. 画朵", "C. 花朵", "D. 华朵"], ans: "C"},
+        {q: "26. 拼音：zhōng guó", options: ["A. 中国", "B. 中果", "C. 种果", "D. 中锅"], ans: "A"},
+        {q: "27. 拼音：hóng sè", options: ["A. 红色", "B. 虹色", "C. 红丝", "D. 洪色"], ans: "A"},
+        {q: "28. 拼音：shēng yīn", options: ["A. 声音", "B. 生银", "C. 升音", "D. 圣音"], ans: "A"},
+        {q: "29. 拼音：mù tóu", options: ["A. 木头", "B. 母亲", "C. 目的", "D. 牧民"], ans: "A"},
+        {q: "30. 拼音：zì xí", options: ["A. 自习", "B. 字写", "C. 自洗", "D. 资洗"], ans: "A"}
+      ];
+
+      document.addEventListener("DOMContentLoaded", function() {
+        const form = document.getElementById("quizForm");
+        questions.forEach((item, idx) => {
+          const div = document.createElement("div");
+          div.className = "question";
+          const name = `q${idx+1}`;
+          div.innerHTML = `<div class='question-title'>${item.q}</div>` +
+            item.options.map(o => `<label><input type='radio' name='${name}' value='${o[0]}'> ${o}</label>`).join("");
+          form.insertBefore(div, form.lastElementChild);
+        });
+      });
+
+      function gradeQuiz() {
+        let score = 0;
+        questions.forEach((q, idx) => {
+          const name = `q${idx+1}`;
+          const selected = document.querySelector(`input[name='${name}']:checked`);
+          if (selected && selected.value === q.ans) score++;
+        });
+        document.getElementById("result").innerText = `你的得分是：${score} / 30`;
+      }
+    </script>
+
+    <button type="button" onclick="gradeQuiz()">提交试卷</button>
+  </form>
+
+  <div id="result"></div>
+</body>
+</html>
+
