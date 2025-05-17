@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>小学校3年生国語テスト</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #004d99;
+    }
+    .question {
+      margin-bottom: 20px;
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      font-size: 24px;
+    }
+    .question-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 36px;
+    }
+    .options label {
+      display: inline-flex;
+      align-items: flex-end;
+      margin: 12px 60px 12px 0;
+      font-size: 36px;
+    }
+    .opt-prefix {
+      font-size: 18px;
+      padding: 5px 22px 5px 0;
+      vertical-align: bottom;
+    }
+    .options input[type="radio"] {
+      transform: scale(1.2);
+      margin: 5px 14px 8px;
+    }
+    .incorrect {
+      color: red;
+    }
+    #result {
+      font-size: 1.6em;
+      font-weight: bold;
+      color: #006600;
+      margin-top: 30px;
+      text-align: center;
+    }
+    .feedback {
+      margin-top: 10px;
+      font-size: 20px;
+      color: red;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 1em;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>小学校3年生国語テスト</h1>
+  <form id="quizForm">
+    <script>
+      const questions = [
+        {q: "1. 「ありがとう」をもっと丁寧に言うと？", correct: "ありがとうございます", options: shuffle(['ありがとうね', 'ありがたい', 'ありがとうございます', 'ありがどう'])},
+        {q: "2. 「見る」の反対の意味は？", correct: "見ない", options: shuffle(['見える', '見たい', '見ない', '見ること'])},
+        {q: "3. 「歩く」の正しい送り仮名はどれ？", correct: "歩きます", options: shuffle(['歩ます', '歩きます', '歩いです', '歩みます'])},
+        {q: "4. 「右」の反対はどれ？", correct: "左", options: shuffle(['東', '西', '左', '北'])},
+        {q: "5. 「大きい」と同じ意味の言葉はどれ？", correct: "広い", options: shuffle(['小さい', '広い', '重い', '強い'])},
+        {q: "6. 「花」の中にあるものはどれ？", correct: "さくら", options: shuffle(['さくら', 'ねこ', 'いぬ', 'くるま'])},
+        {q: "7. 「話す」と似た意味の言葉はどれ？", correct: "しゃべる", options: shuffle(['きく', 'しゃべる', 'よむ', 'みる'])},
+        {q: "8. 空を飛ぶ動作を表す言葉はどれ？", correct: "とぶ", options: shuffle(['とぶ', 'はしる', 'およぐ', 'すわる'])},
+        {q: "9. 正しい言い方はどれ？（大きな声で〜）", correct: "おおきなこえではなす", options: shuffle(['ちいさなこえでさけぶ', 'おおきなこえではなす', 'こえをけす', 'だまっている'])},
+        {q: "10. 動物の中で「犬」はどれ？", correct: "いぬ", options: shuffle(['いぬ', 'ねこ', 'とり', 'さる'])},
+        {q: "11. 「食べる」の尊敬語はどれ？", correct: "召し上がる", options: shuffle(['食べます', '召し上がる', 'いただく', '食べられる'])},
+        {q: "12. 春を代表する植物はどれ？", correct: "さくら", options: shuffle(['さくら', 'こおり', 'ひまわり', 'まつ'])},
+        {q: "13. 「友達」とよくいっしょにすることはどれ？", correct: "あそぶ", options: shuffle(['たべる', 'あそぶ', 'はたらく', 'ねむる'])},
+        {q: "14. 「漢字」の読み方として正しいのは？", correct: "かんじ", options: shuffle(['かんじ', 'かんち', 'かんぢ', 'かちじ'])},
+        {q: "15. 「食べ物」をひらがなで書くとどれ？", correct: "たべもの", options: shuffle(['たべもの', 'たべも', 'たぺもの', 'ためもの'])},
+        {q: "16. 別れのときに使うあいさつはどれ？", correct: "さようなら", options: shuffle(['こんにちは', 'ありがとう', 'さようなら', 'おやすみ'])},
+        {q: "17. 「元気」の反対の意味はどれ？", correct: "病気", options: shuffle(['健康', '元日', '病気', '人気'])},
+        {q: "18. 先生の話をどうするべき？", correct: "よく聞きましょう", options: shuffle(['よく見ましょう', 'よく歩きましょう', 'よく聞きましょう', 'よく書きましょう'])},
+        {q: "19. 川に住んでいる生き物はどれ？", correct: "さかな", options: shuffle(['さかな', 'とり', 'ねこ', 'いぬ'])},
+        {q: "20. 「楽しい」と反対の意味を持つ言葉は？", correct: "つまらない", options: shuffle(['にぎやか', 'つまらない', 'おもしろい', 'あかるい'])}
+      ];
+
+      function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("quizForm");
+        questions.forEach((item, idx) => {
+          const div = document.createElement("div");
+          div.className = "question";
+          const name = `q${idx + 1}`;
+          const labels = ['A', 'B', 'C', 'D'];
+          const optionHTML = item.options.map((opt, i) => {
+            const letter = labels[i];
+            if (opt === item.correct) item.answerIndex = letter;
+            return `<label><input type='radio' name='${name}' value='${letter}'> <span class='opt-prefix'>${letter}.</span> ${opt}</label>`;
+          }).join("");
+          div.innerHTML = `<div class='question-title'>${item.q}</div><div class='options'>${optionHTML}</div>`;
+          form.insertBefore(div, form.lastElementChild);
+        });
+      });
+
+      function gradeQuiz() {
+        let score = 0;
+        document.querySelectorAll(".feedback").forEach(el => el.remove());
+        questions.forEach((q, idx) => {
+          const name = `q${idx + 1}`;
+          const selected = document.querySelector(`input[name='${name}']:checked`);
+          const qDiv = document.querySelectorAll(".question")[idx];
+          if (selected && selected.value === q.answerIndex) {
+            score++;
+          } else {
+            const fb = document.createElement("div");
+            fb.className = "feedback";
+            fb.innerHTML = `正确答案是：<span class='incorrect'>${q.answerIndex}. ${q.correct}</span>`;
+            qDiv.appendChild(fb);
+          }
+        });
+        document.getElementById("result").innerText = `你的得分是：${score} / ${questions.length}`;
+      }
+    </script>
+
+    <button type="button" onclick="gradeQuiz()">提交试卷</button>
+  </form>
+
+  <div id="result"></div>
+</body>
+</html>
+
