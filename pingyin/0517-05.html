@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>拼音选择题考试</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #004d99;
+    }
+    .question {
+      margin-bottom: 20px;
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      font-size: 24px;
+    }
+    .question-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 36px;
+    }
+    .options label {
+      display: inline-flex;
+      align-items: flex-end;
+      margin: 12px 60px 12px 0;
+      font-size: 36px;
+    }
+    .opt-prefix {
+      font-size: 18px;
+      padding: 5px 22px 5px 0;
+      vertical-align: bottom;
+    }
+    .options input[type="radio"] {
+      transform: scale(1.2);
+      margin: 5px 14px 8px;
+    }
+    .incorrect {
+      color: red;
+    }
+    #result {
+      font-size: 1.6em;
+      font-weight: bold;
+      color: #006600;
+      margin-top: 30px;
+      text-align: center;
+    }
+    .feedback {
+      margin-top: 10px;
+      font-size: 20px;
+      color: red;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 1em;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>小学生拼音选择题考试</h1>
+  <form id="quizForm">
+    <script>
+      const questions = [
+        {q: "1. “妈妈” 的拼音是：", correct: "mā ma", options: shuffle(['mā ma', 'mǎ mǎ', 'má ma', 'māmā'])},
+        {q: "2. 拼音：kě lè", correct: "可乐", options: shuffle(['可乐', '渴了', '咳了', '克了'])},
+        {q: "3. “猫” 的声母是：", correct: "m", options: shuffle(['m', 'n', 'l', 'b'])},
+        {q: "4. “黄瓜” 的拼音是：", correct: "huáng guā", options: shuffle(['huáng guā', 'huǎng guā', 'huáng guǎ', 'huáng gūa'])},
+        {q: "5. “太阳” 的拼音是：", correct: "tài yáng", options: shuffle(['tàiyáng', 'tài yáng', 'tài yang', 'tài yàn'])},
+        {q: "6. 拼音：hóng sè", correct: "红色", options: shuffle(['红色', '虹色', '红丝', '洪色'])},
+        {q: "7. 拼音：huā duǒ", correct: "花朵", options: shuffle(['花多', '画朵', '花朵', '华朵'])},
+        {q: "8. “风扇”的正确拼音是：", correct: "fēng shàn", options: shuffle(['fēng shàn', 'fēng sàn', 'fèng shàn', 'fēng shān'])},
+        {q: "9. 拼音：mù tóu", correct: "木头", options: shuffle(['木头', '母亲', '目的', '牧民'])},
+        {q: "10. “椅子”的“椅”是哪个整体认读音节？", correct: "yi", options: shuffle(['yi', 'yǐ', 'i', 'yí'])},
+        {q: "11. “桌子” 的拼音是：", correct: "zhuō zi", options: shuffle(['zhuō zi', 'zhōu zi', 'zhuō zǐ', 'zhuó zi'])},
+        {q: "12. “吃” 的声母是：", correct: "ch", options: shuffle(['ch', 'c', 'q', 'zh'])},
+        {q: "13. “水果” 的拼音是：", correct: "shuǐ guǒ", options: shuffle(['shuǐ guǒ', 'shuǐ guo', 'shǔi guǒ', 'suǐ guǒ'])},
+        {q: "14. “飞机” 的拼音是：", correct: "fēi jī", options: shuffle(['fēi jī', 'fēi qī', 'fē jī', 'fèi jī'])},
+        {q: "15. “雪” 的韵母是：", correct: "üe", options: shuffle(['üe', 'ie', 'uai', 'ai'])},
+        {q: "16. “老师” 的拼音是：", correct: "lǎo shī", options: shuffle(['lǎo shī', 'lǎo sī', 'láo shī', 'lào shì'])},
+        {q: "17. “红花” 的拼音是：", correct: "hóng huā", options: shuffle(['hóng huā', 'hóng huá', 'hóng hūa', 'hǒng huā'])},
+        {q: "18. “学校”的正确拼音是：", correct: "xué xiào", options: shuffle(['xué xiào', 'xuě xiào', 'xué xiāo', 'xúe xiào'])},
+        {q: "19. “鸟” 的韵母是：", correct: "iao", options: shuffle(['iao', 'ao', 'iou', 'uai'])},
+        {q: "20. 拼音：zhōng guó", correct: "中国", options: shuffle(['中国', '中果', '种果', '中锅'])},
+        {q: "21. 拼音：shēng yīn", correct: "声音", options: shuffle(['声音', '生银', '升音', '圣音'])},
+        {q: "22. “看书”的拼音是：", correct: "kàn shū", options: shuffle(['kàn shū', 'kān shū', 'kàn shǔ', 'kān shǔ'])},
+        {q: "23. “爷爷”的“爷”的声母是：", correct: "y", options: shuffle(['y', 'j', 'q', 'zh'])},
+        {q: "24. “小狗” 的拼音是：", correct: "xiǎo gǒu", options: shuffle(['xiǎo gǒu', 'xiǎo gōu', 'xiáo gǒu', 'xiào gòu'])},
+        {q: "25. “苹果” 的拼音是：", correct: "píng guǒ", options: shuffle(['píng guǒ', 'pīng guō', 'pǐng gǔo', 'pín guò'])},
+        {q: "26. 拼音：zì xí", correct: "自习", options: shuffle(['自习', '字写', '自洗', '资洗'])},
+        {q: "27. “语” 的声母和韵母是：", correct: "y, ü", options: shuffle(['y, ü', 'y, u', 'g, ü', 'w, u'])},
+        {q: "28. 拼音：hǎi tān", correct: "海滩", options: shuffle(['沙滩', '海滩', '海洋', '河滩'])},
+        {q: "29. “雨伞”的拼音是：", correct: "yǔ sǎn", options: shuffle(['yǔ sǎn', 'yù sǎn', 'yǔ shǎn', 'yú sǎn'])},
+        {q: "30. “弟” 的声母是：", correct: "d", options: shuffle(['d', 't', 'b', 'l'])}
+      ];
+
+      function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("quizForm");
+        questions.forEach((item, idx) => {
+          const div = document.createElement("div");
+          div.className = "question";
+          const name = `q${idx + 1}`;
+          const labels = ['A', 'B', 'C', 'D'];
+          const optionHTML = item.options.map((opt, i) => {
+            const letter = labels[i];
+            if (opt === item.correct) item.answerIndex = letter;
+            return `<label><input type='radio' name='${name}' value='${letter}'> <span class='opt-prefix'>${letter}.</span> ${opt}</label>`;
+          }).join("");
+          div.innerHTML = `<div class='question-title'>${item.q}</div><div class='options'>${optionHTML}</div>`;
+          form.insertBefore(div, form.lastElementChild);
+        });
+      });
+
+      function gradeQuiz() {
+        let score = 0;
+        document.querySelectorAll(".feedback").forEach(el => el.remove());
+        questions.forEach((q, idx) => {
+          const name = `q${idx + 1}`;
+          const selected = document.querySelector(`input[name='${name}']:checked`);
+          const qDiv = document.querySelectorAll(".question")[idx];
+          if (selected && selected.value === q.answerIndex) {
+            score++;
+          } else {
+            const fb = document.createElement("div");
+            fb.className = "feedback";
+            fb.innerHTML = `正确答案是：<span class='incorrect'>${q.answerIndex}. ${q.correct}</span>`;
+            qDiv.appendChild(fb);
+          }
+        });
+        document.getElementById("result").innerText = `你的得分是：${score} / ${questions.length}`;
+      }
+    </script>
+
+    <button type="button" onclick="gradeQuiz()">提交试卷</button>
+  </form>
+
+  <div id="result"></div>
+</body>
+</html>
+
