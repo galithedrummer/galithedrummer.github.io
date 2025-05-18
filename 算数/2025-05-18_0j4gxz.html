@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang='ja'>
+<head>
+  <meta charset='UTF-8'>
+  <title>小学校3年生算数テスト</title>
+  <style>
+  body { font-family: 'Segoe UI', sans-serif; max-width: 800px; margin: auto; padding: 20px; }
+  h1 { color: #003366; font-size: 28px; }
+  .question { margin-bottom: 28px; padding: 16px; border-radius: 12px; background: #fafbff; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .question-title { font-weight: bold; font-size: 20px; margin-bottom: 8px; }
+  .options label {
+    padding-right: 10px;
+    display: inline-block;
+    margin-right: 40px;
+    margin-top: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    transition: background 0.3s, border 0.3s;
+    cursor: pointer;
+  }
+  .options input[type="radio"]:checked + .opt-prefix + .opt-content {
+    background-color: #e0f0ff;
+    border-radius: 4px;
+  }
+  input[type="radio"]:checked + .opt-prefix + .opt-content {
+    background-color: #e0f0ff;
+    padding: 2px 6px;
+    border-radius: 6px;
+  }
+  .opt-prefix {
+    font-size: 14px;
+    display: inline-block;
+    width: 1.6em;
+    text-align: right;
+  }
+  .opt-content {
+    font-size: 20px;
+    margin-left: 4px;
+    display: inline-block;
+  }
+  .feedback { margin-top: 8px; }
+  .incorrect {
+    display: inline-block;
+    font-size: 18px;
+    background-color: #ffe8e8;
+    border: 2px solid #ff4d4f;
+    border-radius: 6px;
+    padding: 4px 8px;
+  }
+  #result { font-size: 18px; font-weight: bold; margin-top: 20px; }
+</style>
+</head>
+<body>
+  <h1>小学校3年生算数テスト</h1>
+  <form id='quizForm'>
+<div class='question'>
+<div class='question-title'>1. 41 + 63 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q1' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>114</span></label><label><input type='radio' name='q1' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>103</span></label><label><input type='radio' name='q1' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>105</span></label><label><input type='radio' name='q1' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>104</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>2. 15 ÷ 3 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q2' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>4</span></label><label><input type='radio' name='q2' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>7</span></label><label><input type='radio' name='q2' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>5</span></label><label><input type='radio' name='q2' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>6</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>3. 5人にあめを2こずつくばります。ぜんぶで何こ？</div>
+<div class='options'>
+<label><input type='radio' name='q3' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>10こ</span></label><label><input type='radio' name='q3' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>15こ</span></label><label><input type='radio' name='q3' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>12こ</span></label><label><input type='radio' name='q3' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>7こ</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>4. 87 + 50 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q4' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>136</span></label><label><input type='radio' name='q4' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>138</span></label><label><input type='radio' name='q4' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>147</span></label><label><input type='radio' name='q4' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>137</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>5. 51 - 19 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q5' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>31</span></label><label><input type='radio' name='q5' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>32</span></label><label><input type='radio' name='q5' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>42</span></label><label><input type='radio' name='q5' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>33</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>6. 3 × 2 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q6' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>16</span></label><label><input type='radio' name='q6' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>7</span></label><label><input type='radio' name='q6' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>5</span></label><label><input type='radio' name='q6' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>6</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>7. 8 ÷ 2 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q7' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>6</span></label><label><input type='radio' name='q7' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>4</span></label><label><input type='radio' name='q7' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>3</span></label><label><input type='radio' name='q7' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>5</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>8. 8時に家を出て、学校に30分かかります。何時に学校につきますか？</div>
+<div class='options'>
+<label><input type='radio' name='q8' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>7時30分</span></label><label><input type='radio' name='q8' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>9時</span></label><label><input type='radio' name='q8' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>8時</span></label><label><input type='radio' name='q8' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>8時30分</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>9. 90 + 49 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q9' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>149</span></label><label><input type='radio' name='q9' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>140</span></label><label><input type='radio' name='q9' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>138</span></label><label><input type='radio' name='q9' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>139</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>10. 28 + 51 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q10' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>78</span></label><label><input type='radio' name='q10' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>79</span></label><label><input type='radio' name='q10' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>89</span></label><label><input type='radio' name='q10' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>80</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>11. 1日は何時間？</div>
+<div class='options'>
+<label><input type='radio' name='q11' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>100時間</span></label><label><input type='radio' name='q11' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>24時間</span></label><label><input type='radio' name='q11' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>12時間</span></label><label><input type='radio' name='q11' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>60時間</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>12. 84 - 10 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q12' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>74</span></label><label><input type='radio' name='q12' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>73</span></label><label><input type='radio' name='q12' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>75</span></label><label><input type='radio' name='q12' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>84</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>13. 62 - 19 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q13' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>53</span></label><label><input type='radio' name='q13' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>44</span></label><label><input type='radio' name='q13' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>42</span></label><label><input type='radio' name='q13' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>43</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>14. 1メートルは何センチメートル？</div>
+<div class='options'>
+<label><input type='radio' name='q14' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>10センチメートル</span></label><label><input type='radio' name='q14' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>1000センチメートル</span></label><label><input type='radio' name='q14' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>1センチメートル</span></label><label><input type='radio' name='q14' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>100センチメートル</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>15. 28 ÷ 4 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q15' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>9</span></label><label><input type='radio' name='q15' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>6</span></label><label><input type='radio' name='q15' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>7</span></label><label><input type='radio' name='q15' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>8</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>16. 51 - 14 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q16' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>38</span></label><label><input type='radio' name='q16' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>36</span></label><label><input type='radio' name='q16' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>47</span></label><label><input type='radio' name='q16' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>37</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>17. 16 ÷ 8 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q17' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>1</span></label><label><input type='radio' name='q17' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>2</span></label><label><input type='radio' name='q17' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>4</span></label><label><input type='radio' name='q17' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>3</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>18. 9 × 9 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q18' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>91</span></label><label><input type='radio' name='q18' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>81</span></label><label><input type='radio' name='q18' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>80</span></label><label><input type='radio' name='q18' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>82</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>19. 4 × 4 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q19' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>17</span></label><label><input type='radio' name='q19' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>15</span></label><label><input type='radio' name='q19' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>16</span></label><label><input type='radio' name='q19' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>26</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>20. 95 + 76 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q20' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>172</span></label><label><input type='radio' name='q20' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>171</span></label><label><input type='radio' name='q20' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>181</span></label><label><input type='radio' name='q20' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>170</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>21. 5 × 3 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q21' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>14</span></label><label><input type='radio' name='q21' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>15</span></label><label><input type='radio' name='q21' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>25</span></label><label><input type='radio' name='q21' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>16</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>22. りんごが3つあります。1つに100円かかります。ぜんぶでいくら？</div>
+<div class='options'>
+<label><input type='radio' name='q22' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>400円</span></label><label><input type='radio' name='q22' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>100円</span></label><label><input type='radio' name='q22' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>200円</span></label><label><input type='radio' name='q22' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>300円</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>23. 58 - 32 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q23' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>27</span></label><label><input type='radio' name='q23' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>36</span></label><label><input type='radio' name='q23' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>26</span></label><label><input type='radio' name='q23' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>25</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>24. 9 × 3 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q24' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>37</span></label><label><input type='radio' name='q24' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>28</span></label><label><input type='radio' name='q24' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>27</span></label><label><input type='radio' name='q24' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>26</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>25. 36 ÷ 6 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q25' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>7</span></label><label><input type='radio' name='q25' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>6</span></label><label><input type='radio' name='q25' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>8</span></label><label><input type='radio' name='q25' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>5</span></label></div>
+</div>
+<button type='button' onclick='gradeQuiz()'>提出する</button>
+</form>
+<div id='result'></div>
+<script>
+const answers = [
+  { num: 1, answer: 'D', correct: '104' },
+  { num: 2, answer: 'C', correct: '5' },
+  { num: 3, answer: 'A', correct: '10こ' },
+  { num: 4, answer: 'D', correct: '137' },
+  { num: 5, answer: 'B', correct: '32' },
+  { num: 6, answer: 'D', correct: '6' },
+  { num: 7, answer: 'B', correct: '4' },
+  { num: 8, answer: 'D', correct: '8時30分' },
+  { num: 9, answer: 'D', correct: '139' },
+  { num: 10, answer: 'B', correct: '79' },
+  { num: 11, answer: 'B', correct: '24時間' },
+  { num: 12, answer: 'A', correct: '74' },
+  { num: 13, answer: 'D', correct: '43' },
+  { num: 14, answer: 'D', correct: '100センチメートル' },
+  { num: 15, answer: 'C', correct: '7' },
+  { num: 16, answer: 'D', correct: '37' },
+  { num: 17, answer: 'B', correct: '2' },
+  { num: 18, answer: 'B', correct: '81' },
+  { num: 19, answer: 'C', correct: '16' },
+  { num: 20, answer: 'B', correct: '171' },
+  { num: 21, answer: 'B', correct: '15' },
+  { num: 22, answer: 'D', correct: '300円' },
+  { num: 23, answer: 'C', correct: '26' },
+  { num: 24, answer: 'C', correct: '27' },
+  { num: 25, answer: 'B', correct: '6' },
+];
+
+function gradeQuiz() {
+  let score = 0;
+  document.querySelectorAll(".feedback").forEach(el => el.remove());
+  answers.forEach(a => {
+    const sel = document.querySelector(`input[name='q${a.num}']:checked`);
+    const div = document.querySelectorAll(".question")[a.num - 1];
+    if (sel && sel.value === a.answer) {
+      score++;
+    } else {
+      const fb = document.createElement("div");
+      fb.className = "feedback";
+      fb.innerHTML = "正解は：<span class='incorrect'>" + a.answer + ". " + a.correct + "</span>";
+      div.appendChild(fb);
+    }
+  });
+  document.getElementById("result").innerText = `あなたの得点：${score} / ${answers.length}`;
+
+  const key = location.pathname.split('/').pop() || 'default';
+  const storageURL = 'https://kvdb.io/FrFWQafq3LwK1bVEhs4ER6/' + key;
+  const entry = {
+    score: `${score} / ${answers.length}`,
+    timestamp: new Date().toISOString()
+  };
+  fetch(storageURL)
+    .then(r => r.ok ? r.text() : "[]")
+    .then(t => {
+      let data = [];
+      try { data = JSON.parse(t); if (!Array.isArray(data)) data = []; } catch (e) { data = []; }
+      data.push(entry);
+      return fetch(storageURL, {
+        method: "PUT",
+        body: JSON.stringify(data)
+      });
+    });
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  const popup = document.createElement("div");
+  popup.id = "score-popup";
+  popup.style = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #f0f4ff;
+    padding: 18px 20px;
+    border: 1px solid #ccd;
+    font-size: 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    z-index: 999;
+    width: 320px;
+    font-family: "Segoe UI", sans-serif;
+  `;
+  popup.innerHTML = `
+    <div style="display:flex; justify-content: space-between; align-items: center;">
+      <h4 style="margin: 0; font-size: 18px; color: #003366;">過去の成績</h4>
+      <button style="background-color:#007bff;color:white;border:none;border-radius:6px;padding:4px 10px;cursor:pointer;font-weight:bold;" onclick="this.parentNode.parentNode.remove()">✖</button>
+    </div>
+    <hr style="margin:10px 0;border:none;border-top:1px solid #ccc">
+    <div id="score-log" style="line-height:1.6">読み込み中...</div>
+  `;
+  document.body.appendChild(popup);
+
+  const key = location.pathname.split('/').pop() || 'default';
+  const storageURL = 'https://kvdb.io/FrFWQafq3LwK1bVEhs4ER6/' + key;
+  fetch(storageURL)
+    .then(res => res.text())
+    .then(t => {
+      let entries = JSON.parse(t);
+      if (!Array.isArray(entries)) entries = [entries];
+      const sorted = entries.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+      const log = document.getElementById("score-log");
+      log.innerHTML = `<table style="width:100%; border-collapse: collapse;">
+        ${sorted.map(e => `
+          <tr><td style="padding:6px 4px;"><strong>得点</strong></td><td style="padding:6px 4px;">${e.score}</td></tr>
+          <tr><td style="padding:6px 4px;"><strong>時刻</strong></td><td style="padding:6px 4px;">${new Date(e.timestamp).toLocaleString()}</td></tr>
+          <tr><td colspan="2"><hr style='border:none;border-top:1px solid #ddd;'></td></tr>
+        `).join("")}
+      </table>`;
+    })
+    .catch(() => {
+      document.getElementById("score-log").innerText = "記録なし";
+    });
+});
+</script>
+</body>
+</html>
