@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang='ja'>
+<head>
+  <meta charset='UTF-8'>
+  <title>小学校3年生国語テスト 第5回</title>
+  <style>
+  body { font-family: 'Segoe UI', sans-serif; max-width: 800px; margin: auto; padding: 20px; }
+  h1 { color: #003366; font-size: 28px; }
+  .question { margin-bottom: 28px; padding: 16px; border-radius: 12px; background: #fafbff; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .question-title { font-weight: bold; font-size: 20px; margin-bottom: 8px; }
+  .options label {
+    padding-right: 10px;
+    display: inline-block;
+    margin-right: 40px;
+    margin-top: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    transition: background 0.3s, border 0.3s;
+    cursor: pointer;
+  }
+  .options input[type="radio"]:checked + .opt-prefix + .opt-content {
+    background-color: #e0f0ff;
+    border-radius: 4px;
+  }
+  input[type="radio"]:checked + .opt-prefix + .opt-content {
+    background-color: #e0f0ff;
+    padding: 2px 6px;
+    border-radius: 6px;
+  }
+  .opt-prefix {
+    font-size: 14px;
+    display: inline-block;
+    width: 1.6em;
+    text-align: right;
+  }
+  .opt-content {
+    font-size: 20px;
+    margin-left: 4px;
+    display: inline-block;
+  }
+  .feedback { margin-top: 8px; }
+  .incorrect {
+    display: inline-block;
+    font-size: 18px;
+    background-color: #ffe8e8;
+    border: 2px solid #ff4d4f;
+    border-radius: 6px;
+    padding: 4px 8px;
+  }
+  #result { font-size: 18px; font-weight: bold; margin-top: 20px; }
+</style>
+</head>
+<body>
+  <h1>小学校3年生国語テスト 第5回</h1>
+  <form id='quizForm'>
+<div class='question'>
+<div class='question-title'>1. 「見る」と反対の意味は？</div>
+<div class='options'>
+<label><input type='radio' name='q1' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>見える</span></label><label><input type='radio' name='q1' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>見ること</span></label><label><input type='radio' name='q1' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>見ない</span></label><label><input type='radio' name='q1' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>見たい</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>2. 「雲」の反対の意味に近いのは？</div>
+<div class='options'>
+<label><input type='radio' name='q2' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>晴れ</span></label><label><input type='radio' name='q2' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>雨</span></label><label><input type='radio' name='q2' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>雪</span></label><label><input type='radio' name='q2' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>風</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>3. 「『』」の使い方は？</div>
+<div class='options'>
+<label><input type='radio' name='q3' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>文章を終える</span></label><label><input type='radio' name='q3' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>ふりがなを書く</span></label><label><input type='radio' name='q3' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>強調する</span></label><label><input type='radio' name='q3' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>会話や引用を囲む</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>4. 「空にあるもの」はどれ？</div>
+<div class='options'>
+<label><input type='radio' name='q4' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>くも</span></label><label><input type='radio' name='q4' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>かわ</span></label><label><input type='radio' name='q4' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>うみ</span></label><label><input type='radio' name='q4' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>やま</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>5. 「よく似た言葉」を選びなさい：楽しい</div>
+<div class='options'>
+<label><input type='radio' name='q5' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>うれしい</span></label><label><input type='radio' name='q5' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>にがい</span></label><label><input type='radio' name='q5' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>かなしい</span></label><label><input type='radio' name='q5' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>さむい</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>6. 「口」を使うことはどれ？</div>
+<div class='options'>
+<label><input type='radio' name='q6' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>あるく</span></label><label><input type='radio' name='q6' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>きく</span></label><label><input type='radio' name='q6' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>はなす</span></label><label><input type='radio' name='q6' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>はしる</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>7. 「図書館」で本を何する？</div>
+<div class='options'>
+<label><input type='radio' name='q7' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>かう</span></label><label><input type='radio' name='q7' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>つくる</span></label><label><input type='radio' name='q7' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>よむ</span></label><label><input type='radio' name='q7' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>かりる</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>8. 「よく似た言葉」を選びなさい：楽しい</div>
+<div class='options'>
+<label><input type='radio' name='q8' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>にがい</span></label><label><input type='radio' name='q8' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>かなしい</span></label><label><input type='radio' name='q8' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>うれしい</span></label><label><input type='radio' name='q8' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>さむい</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>9. 「春・夏・秋・冬」の順番で3番目は？</div>
+<div class='options'>
+<label><input type='radio' name='q9' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>夏</span></label><label><input type='radio' name='q9' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>秋</span></label><label><input type='radio' name='q9' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>春</span></label><label><input type='radio' name='q9' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>冬</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>10. 「見上げる」はどんな意味？</div>
+<div class='options'>
+<label><input type='radio' name='q10' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>中に入る</span></label><label><input type='radio' name='q10' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>上をみる</span></label><label><input type='radio' name='q10' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>下をみる</span></label><label><input type='radio' name='q10' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>外を見る</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>11. 「ありがとう」をもっと丁寧に言うと？</div>
+<div class='options'>
+<label><input type='radio' name='q11' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>ありがたい</span></label><label><input type='radio' name='q11' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>ございます</span></label><label><input type='radio' name='q11' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>ありがとう</span></label><label><input type='radio' name='q11' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>ありがとうございます</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>12. 「花」に関係する言葉はどれ？</div>
+<div class='options'>
+<label><input type='radio' name='q12' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>いぬ</span></label><label><input type='radio' name='q12' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>うみ</span></label><label><input type='radio' name='q12' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>さくら</span></label><label><input type='radio' name='q12' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>ほし</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>13. 「話す」の意味に近いのは？</div>
+<div class='options'>
+<label><input type='radio' name='q13' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>しゃべる</span></label><label><input type='radio' name='q13' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>きく</span></label><label><input type='radio' name='q13' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>みる</span></label><label><input type='radio' name='q13' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>はなす</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>14. 「ありがとう」をもっと丁寧に言うと？</div>
+<div class='options'>
+<label><input type='radio' name='q14' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>ありがとう</span></label><label><input type='radio' name='q14' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>ありがたい</span></label><label><input type='radio' name='q14' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>ございます</span></label><label><input type='radio' name='q14' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>ありがとうございます</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>15. 「見上げる」はどんな意味？</div>
+<div class='options'>
+<label><input type='radio' name='q15' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>上をみる</span></label><label><input type='radio' name='q15' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>外を見る</span></label><label><input type='radio' name='q15' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>下をみる</span></label><label><input type='radio' name='q15' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>中に入る</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>16. 「花」に関係する言葉はどれ？</div>
+<div class='options'>
+<label><input type='radio' name='q16' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>ほし</span></label><label><input type='radio' name='q16' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>いぬ</span></label><label><input type='radio' name='q16' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>うみ</span></label><label><input type='radio' name='q16' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>さくら</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>17. 「あいさつ」をするのはいつ？</div>
+<div class='options'>
+<label><input type='radio' name='q17' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>遊ぶとき</span></label><label><input type='radio' name='q17' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>会ったとき</span></label><label><input type='radio' name='q17' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>寝るとき</span></label><label><input type='radio' name='q17' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>帰るとき</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>18. 「駅」でできることは？</div>
+<div class='options'>
+<label><input type='radio' name='q18' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>買い物</span></label><label><input type='radio' name='q18' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>勉強</span></label><label><input type='radio' name='q18' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>電車にのる</span></label><label><input type='radio' name='q18' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>遊ぶ</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>19. 「友だち」とけんかしたらどうする？</div>
+<div class='options'>
+<label><input type='radio' name='q19' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>無視する</span></label><label><input type='radio' name='q19' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>わらう</span></label><label><input type='radio' name='q19' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>にげる</span></label><label><input type='radio' name='q19' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>あやまる</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>20. 「正しい送り仮名」はどれ？：歩（ある）く</div>
+<div class='options'>
+<label><input type='radio' name='q20' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>歩き</span></label><label><input type='radio' name='q20' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>歩く</span></label><label><input type='radio' name='q20' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>歩こ</span></label><label><input type='radio' name='q20' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>歩け</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>21. 「ありがとう」をもっと丁寧に言うと？</div>
+<div class='options'>
+<label><input type='radio' name='q21' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>ありがとうございます</span></label><label><input type='radio' name='q21' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>ありがたい</span></label><label><input type='radio' name='q21' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>ありがとう</span></label><label><input type='radio' name='q21' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>ございます</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>22. 「兄」の読み方は？</div>
+<div class='options'>
+<label><input type='radio' name='q22' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>あに</span></label><label><input type='radio' name='q22' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>あね</span></label><label><input type='radio' name='q22' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>おとうと</span></label><label><input type='radio' name='q22' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>いもうと</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>23. 「見上げる」はどんな意味？</div>
+<div class='options'>
+<label><input type='radio' name='q23' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>下をみる</span></label><label><input type='radio' name='q23' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>外を見る</span></label><label><input type='radio' name='q23' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>上をみる</span></label><label><input type='radio' name='q23' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>中に入る</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>24. 「見る」と反対の意味は？</div>
+<div class='options'>
+<label><input type='radio' name='q24' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>見たい</span></label><label><input type='radio' name='q24' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>見える</span></label><label><input type='radio' name='q24' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>見ること</span></label><label><input type='radio' name='q24' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>見ない</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>25. 「好きなことをする」はどんな意味？</div>
+<div class='options'>
+<label><input type='radio' name='q25' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>困る</span></label><label><input type='radio' name='q25' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>退屈</span></label><label><input type='radio' name='q25' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>自由</span></label><label><input type='radio' name='q25' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>自分勝手</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>26. 「犬」がでてくることわざは？</div>
+<div class='options'>
+<label><input type='radio' name='q26' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>犬も歩けば棒にあたる</span></label><label><input type='radio' name='q26' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>花より団子</span></label><label><input type='radio' name='q26' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>猿も木から落ちる</span></label><label><input type='radio' name='q26' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>馬の耳に念仏</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>27. 「口」を使うことはどれ？</div>
+<div class='options'>
+<label><input type='radio' name='q27' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>きく</span></label><label><input type='radio' name='q27' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>はしる</span></label><label><input type='radio' name='q27' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>あるく</span></label><label><input type='radio' name='q27' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>はなす</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>28. 「おとうと」は漢字でどう書く？</div>
+<div class='options'>
+<label><input type='radio' name='q28' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>妹</span></label><label><input type='radio' name='q28' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>弟</span></label><label><input type='radio' name='q28' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>兄</span></label><label><input type='radio' name='q28' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>姉</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>29. 「走る」の正しい漢字はどれ？</div>
+<div class='options'>
+<label><input type='radio' name='q29' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>正</span></label><label><input type='radio' name='q29' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>起</span></label><label><input type='radio' name='q29' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>出</span></label><label><input type='radio' name='q29' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>走</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>30. 「よく似た言葉」を選びなさい：楽しい</div>
+<div class='options'>
+<label><input type='radio' name='q30' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>かなしい</span></label><label><input type='radio' name='q30' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>うれしい</span></label><label><input type='radio' name='q30' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>さむい</span></label><label><input type='radio' name='q30' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>にがい</span></label></div>
+</div>
+<button type='button' onclick='gradeQuiz()'>提出する</button>
+</form>
+<div id='result'></div>
+<script>
+const answers = [
+  { num: 1, answer: 'C', correct: '見ない' },
+  { num: 2, answer: 'A', correct: '晴れ' },
+  { num: 3, answer: 'D', correct: '会話や引用を囲む' },
+  { num: 4, answer: 'A', correct: 'くも' },
+  { num: 5, answer: 'A', correct: 'うれしい' },
+  { num: 6, answer: 'C', correct: 'はなす' },
+  { num: 7, answer: 'D', correct: 'かりる' },
+  { num: 8, answer: 'C', correct: 'うれしい' },
+  { num: 9, answer: 'B', correct: '秋' },
+  { num: 10, answer: 'B', correct: '上をみる' },
+  { num: 11, answer: 'D', correct: 'ありがとうございます' },
+  { num: 12, answer: 'C', correct: 'さくら' },
+  { num: 13, answer: 'A', correct: 'しゃべる' },
+  { num: 14, answer: 'D', correct: 'ありがとうございます' },
+  { num: 15, answer: 'A', correct: '上をみる' },
+  { num: 16, answer: 'D', correct: 'さくら' },
+  { num: 17, answer: 'B', correct: '会ったとき' },
+  { num: 18, answer: 'C', correct: '電車にのる' },
+  { num: 19, answer: 'D', correct: 'あやまる' },
+  { num: 20, answer: 'B', correct: '歩く' },
+  { num: 21, answer: 'A', correct: 'ありがとうございます' },
+  { num: 22, answer: 'A', correct: 'あに' },
+  { num: 23, answer: 'C', correct: '上をみる' },
+  { num: 24, answer: 'D', correct: '見ない' },
+  { num: 25, answer: 'C', correct: '自由' },
+  { num: 26, answer: 'A', correct: '犬も歩けば棒にあたる' },
+  { num: 27, answer: 'D', correct: 'はなす' },
+  { num: 28, answer: 'B', correct: '弟' },
+  { num: 29, answer: 'D', correct: '走' },
+  { num: 30, answer: 'B', correct: 'うれしい' },
+];
+
+function gradeQuiz() {
+  let score = 0;
+  document.querySelectorAll(".feedback").forEach(el => el.remove());
+  answers.forEach(a => {
+    const sel = document.querySelector(`input[name='q${a.num}']:checked`);
+    const div = document.querySelectorAll(".question")[a.num - 1];
+    if (sel && sel.value === a.answer) {
+      score++;
+    } else {
+      const fb = document.createElement("div");
+      fb.className = "feedback";
+      fb.innerHTML = "正解は：<span class='incorrect'>" + a.answer + ". " + a.correct + "</span>";
+      div.appendChild(fb);
+    }
+  });
+  document.getElementById("result").innerText = `あなたの得点：${score} / ${answers.length}`;
+
+  const key = location.pathname.split('/').pop() || 'default';
+  const storageURL = 'https://kvdb.io/FrFWQafq3LwK1bVEhs4ER6/' + key;
+  const entry = {
+    score: `${score} / ${answers.length}`,
+    timestamp: new Date().toISOString()
+  };
+  fetch(storageURL)
+    .then(r => r.ok ? r.text() : "[]")
+    .then(t => {
+      let data = [];
+      try { data = JSON.parse(t); if (!Array.isArray(data)) data = []; } catch (e) { data = []; }
+      data.push(entry);
+      return fetch(storageURL, {
+        method: "PUT",
+        body: JSON.stringify(data)
+      });
+    });
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  const popup = document.createElement("div");
+  popup.id = "score-popup";
+  popup.style = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #f0f4ff;
+    padding: 18px 20px;
+    border: 1px solid #ccd;
+    font-size: 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    z-index: 999;
+    width: 320px;
+    font-family: "Segoe UI", sans-serif;
+  `;
+  popup.innerHTML = `
+    <div style="display:flex; justify-content: space-between; align-items: center;">
+      <h4 style="margin: 0; font-size: 18px; color: #003366;">過去の成績</h4>
+      <button style="background-color:#007bff;color:white;border:none;border-radius:6px;padding:4px 10px;cursor:pointer;font-weight:bold;" onclick="this.parentNode.parentNode.remove()">✖</button>
+    </div>
+    <hr style="margin:10px 0;border:none;border-top:1px solid #ccc">
+    <div id="score-log" style="line-height:1.6">読み込み中...</div>
+  `;
+  document.body.appendChild(popup);
+
+  const key = location.pathname.split('/').pop() || 'default';
+  const storageURL = 'https://kvdb.io/FrFWQafq3LwK1bVEhs4ER6/' + key;
+  fetch(storageURL)
+    .then(res => res.text())
+    .then(t => {
+      let entries = JSON.parse(t);
+      if (!Array.isArray(entries)) entries = [entries];
+      const sorted = entries.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+      const log = document.getElementById("score-log");
+      log.innerHTML = `<table style="width:100%; border-collapse: collapse;">
+        ${sorted.map(e => `
+          <tr><td style="padding:6px 4px;"><strong>得点</strong></td><td style="padding:6px 4px;">${e.score}</td></tr>
+          <tr><td style="padding:6px 4px;"><strong>時刻</strong></td><td style="padding:6px 4px;">${new Date(e.timestamp).toLocaleString()}</td></tr>
+          <tr><td colspan="2"><hr style='border:none;border-top:1px solid #ddd;'></td></tr>
+        `).join("")}
+      </table>`;
+    })
+    .catch(() => {
+      document.getElementById("score-log").innerText = "記録なし";
+    });
+});
+</script>
+</body>
+</html>
