@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang='ja'>
+<head>
+  <meta charset='UTF-8'>
+  <title>小学校3年生国語テスト 第5回</title>
+  <style>
+  body { font-family: 'Segoe UI', sans-serif; max-width: 800px; margin: auto; padding: 20px; }
+  h1 { color: #003366; font-size: 28px; }
+  .question { margin-bottom: 28px; padding: 16px; border-radius: 12px; background: #fafbff; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .question-title { font-weight: bold; font-size: 20px; margin-bottom: 8px; }
+  .options label {
+    padding-right: 10px;
+    display: inline-block;
+    margin-right: 40px;
+    margin-top: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    transition: background 0.3s, border 0.3s;
+    cursor: pointer;
+  }
+  .options input[type="radio"]:checked + .opt-prefix + .opt-content {
+    background-color: #e0f0ff;
+    border-radius: 4px;
+  }
+  input[type="radio"]:checked + .opt-prefix + .opt-content {
+    background-color: #e0f0ff;
+    padding: 2px 6px;
+    border-radius: 6px;
+  }
+  .opt-prefix {
+    font-size: 14px;
+    display: inline-block;
+    width: 1.6em;
+    text-align: right;
+  }
+  .opt-content {
+    font-size: 20px;
+    margin-left: 4px;
+    display: inline-block;
+  }
+  .feedback { margin-top: 8px; }
+  .incorrect {
+    display: inline-block;
+    font-size: 18px;
+    background-color: #ffe8e8;
+    border: 2px solid #ff4d4f;
+    border-radius: 6px;
+    padding: 4px 8px;
+  }
+  #result { font-size: 18px; font-weight: bold; margin-top: 20px; }
+</style>
+</head>
+<body>
+  <h1>小学校3年生国語テスト 第5回</h1>
+  <form id='quizForm'>
+<button type='button' onclick='gradeQuiz()'>提出する</button>
+</form>
+<div id='result'></div>
+<script>
+const answers = [
+];
+
+function gradeQuiz() {
+  let score = 0;
+  document.querySelectorAll(".feedback").forEach(el => el.remove());
+  answers.forEach(a => {
+    const sel = document.querySelector(`input[name='q${a.num}']:checked`);
+    const div = document.querySelectorAll(".question")[a.num - 1];
+    if (sel && sel.value === a.answer) {
+      score++;
+    } else {
+      const fb = document.createElement("div");
+      fb.className = "feedback";
+      fb.innerHTML = "正解は：<span class='incorrect'>" + a.answer + ". " + a.correct + "</span>";
+      div.appendChild(fb);
+    }
+  });
+  document.getElementById("result").innerText = `あなたの得点：${score} / ${answers.length}`;
+
+  const key = location.pathname.split('/').pop() || 'default';
+  const storageURL = 'https://kvdb.io/FrFWQafq3LwK1bVEhs4ER6/' + key;
+  const entry = {
+    score: `${score} / ${answers.length}`,
+    timestamp: new Date().toISOString()
+  };
+  fetch(storageURL)
+    .then(r => r.ok ? r.text() : "[]")
+    .then(t => {
+      let data = [];
+      try { data = JSON.parse(t); if (!Array.isArray(data)) data = []; } catch (e) { data = []; }
+      data.push(entry);
+      return fetch(storageURL, {
+        method: "PUT",
+        body: JSON.stringify(data)
+      });
+    });
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  const popup = document.createElement("div");
+  popup.id = "score-popup";
+  popup.style = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #f0f4ff;
+    padding: 18px 20px;
+    border: 1px solid #ccd;
+    font-size: 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    z-index: 999;
+    width: 320px;
+    font-family: "Segoe UI", sans-serif;
+  `;
+  popup.innerHTML = `
+    <div style="display:flex; justify-content: space-between; align-items: center;">
+      <h4 style="margin: 0; font-size: 18px; color: #003366;">過去の成績</h4>
+      <button style="background-color:#007bff;color:white;border:none;border-radius:6px;padding:4px 10px;cursor:pointer;font-weight:bold;" onclick="this.parentNode.parentNode.remove()">✖</button>
+    </div>
+    <hr style="margin:10px 0;border:none;border-top:1px solid #ccc">
+    <div id="score-log" style="line-height:1.6">読み込み中...</div>
+  `;
+  document.body.appendChild(popup);
+
+  const key = location.pathname.split('/').pop() || 'default';
+  const storageURL = 'https://kvdb.io/FrFWQafq3LwK1bVEhs4ER6/' + key;
+  fetch(storageURL)
+    .then(res => res.text())
+    .then(t => {
+      let entries = JSON.parse(t);
+      if (!Array.isArray(entries)) entries = [entries];
+      const sorted = entries.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+      const log = document.getElementById("score-log");
+      log.innerHTML = `<table style="width:100%; border-collapse: collapse;">
+        ${sorted.map(e => `
+          <tr><td style="padding:6px 4px;"><strong>得点</strong></td><td style="padding:6px 4px;">${e.score}</td></tr>
+          <tr><td style="padding:6px 4px;"><strong>時刻</strong></td><td style="padding:6px 4px;">${new Date(e.timestamp).toLocaleString()}</td></tr>
+          <tr><td colspan="2"><hr style='border:none;border-top:1px solid #ddd;'></td></tr>
+        `).join("")}
+      </table>`;
+    })
+    .catch(() => {
+      document.getElementById("score-log").innerText = "記録なし";
+    });
+});
+</script>
+</body>
+</html>
