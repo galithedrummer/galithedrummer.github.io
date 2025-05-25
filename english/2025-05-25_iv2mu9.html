@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang='ja'>
+<head>
+  <meta charset='UTF-8'>
+  <title>初中一年级英语试卷 第1套</title>
+  <style>
+  body { font-family: 'Segoe UI', sans-serif; max-width: 800px; margin: auto; padding: 20px; }
+  h1 { color: #003366; font-size: 28px; }
+  .question { margin-bottom: 28px; padding: 16px; border-radius: 12px; background: #fafbff; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .question-title { font-weight: bold; font-size: 20px; margin-bottom: 8px; }
+  .options label {
+    padding-right: 10px;
+    display: inline-block;
+    margin-right: 40px;
+    margin-top: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    transition: background 0.3s, border 0.3s;
+    cursor: pointer;
+  }
+  .options input[type="radio"]:checked + .opt-prefix + .opt-content {
+    background-color: #e0f0ff;
+    border-radius: 4px;
+  }
+  input[type="radio"]:checked + .opt-prefix + .opt-content {
+    background-color: #e0f0ff;
+    padding: 2px 6px;
+    border-radius: 6px;
+  }
+  .opt-prefix {
+    font-size: 14px;
+    display: inline-block;
+    width: 1.6em;
+    text-align: right;
+  }
+  .opt-content {
+    font-size: 20px;
+    margin-left: 4px;
+    display: inline-block;
+  }
+  .feedback { margin-top: 8px; }
+  .incorrect {
+    display: inline-block;
+    font-size: 18px;
+    background-color: #ffe8e8;
+    border: 2px solid #ff4d4f;
+    border-radius: 6px;
+    padding: 4px 8px;
+  }
+  #result { font-size: 18px; font-weight: bold; margin-top: 20px; }
+</style>
+</head>
+<body>
+  <h1>初中一年级英语试卷 第1套</h1>
+  <form id='quizForm'>
+<div class='question'>
+<div class='question-title'>1. Choose the correct form: She ___ to school every day.</div>
+<div class='options'>
+<label><input type='radio' name='q1' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>gone</span></label><label><input type='radio' name='q1' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>going</span></label><label><input type='radio' name='q1' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>go</span></label><label><input type='radio' name='q1' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>goes</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>2. Which is the plural form of 'child'?</div>
+<div class='options'>
+<label><input type='radio' name='q2' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>childes</span></label><label><input type='radio' name='q2' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>children</span></label><label><input type='radio' name='q2' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>childs</span></label><label><input type='radio' name='q2' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>childrens</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>3. What does 'library' mean?</div>
+<div class='options'>
+<label><input type='radio' name='q3' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>A place to eat</span></label><label><input type='radio' name='q3' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>A place to sleep</span></label><label><input type='radio' name='q3' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>A place with books to read or borrow</span></label><label><input type='radio' name='q3' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>A place to play</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>4. Choose the right tense: They ___ a movie now.</div>
+<div class='options'>
+<label><input type='radio' name='q4' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>have watched</span></label><label><input type='radio' name='q4' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>watched</span></label><label><input type='radio' name='q4' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>are watching</span></label><label><input type='radio' name='q4' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>watch</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>5. Find the word that does not belong: apple, banana, carrot, orange</div>
+<div class='options'>
+<label><input type='radio' name='q5' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>banana</span></label><label><input type='radio' name='q5' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>apple</span></label><label><input type='radio' name='q5' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>orange</span></label><label><input type='radio' name='q5' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>carrot</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>6. Choose the correct question: ___ your father a teacher?</div>
+<div class='options'>
+<label><input type='radio' name='q6' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>Was</span></label><label><input type='radio' name='q6' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>Is</span></label><label><input type='radio' name='q6' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>Does</span></label><label><input type='radio' name='q6' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>Are</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>7. Which is the synonym of 'happy'?</div>
+<div class='options'>
+<label><input type='radio' name='q7' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>glad</span></label><label><input type='radio' name='q7' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>sad</span></label><label><input type='radio' name='q7' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>bored</span></label><label><input type='radio' name='q7' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>tired</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>8. Find the mistake: He go to school by bus.</div>
+<div class='options'>
+<label><input type='radio' name='q8' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>by</span></label><label><input type='radio' name='q8' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>to</span></label><label><input type='radio' name='q8' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>go</span></label><label><input type='radio' name='q8' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>He</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>9. How do you say 7:15 in English?</div>
+<div class='options'>
+<label><input type='radio' name='q9' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>seven fifteen</span></label><label><input type='radio' name='q9' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>fifteen past seven</span></label><label><input type='radio' name='q9' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>seven and quarter</span></label><label><input type='radio' name='q9' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>a quarter past seven</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>10. What is the opposite of 'early'?</div>
+<div class='options'>
+<label><input type='radio' name='q10' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>fast</span></label><label><input type='radio' name='q10' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>slow</span></label><label><input type='radio' name='q10' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>soon</span></label><label><input type='radio' name='q10' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>late</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>11. Choose the correct verb: They ___ soccer every weekend.</div>
+<div class='options'>
+<label><input type='radio' name='q11' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>playing</span></label><label><input type='radio' name='q11' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>plays</span></label><label><input type='radio' name='q11' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>played</span></label><label><input type='radio' name='q11' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>play</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>12. What’s the past tense of 'eat'?</div>
+<div class='options'>
+<label><input type='radio' name='q12' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>eated</span></label><label><input type='radio' name='q12' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>ate</span></label><label><input type='radio' name='q12' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>eat</span></label><label><input type='radio' name='q12' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>eaten</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>13. Select the correct sentence:</div>
+<div class='options'>
+<label><input type='radio' name='q13' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>There be a book on the desk.</span></label><label><input type='radio' name='q13' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>There are a book on the desk.</span></label><label><input type='radio' name='q13' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>There are books on the desks.</span></label><label><input type='radio' name='q13' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>There is a book on the desk.</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>14. What’s the right response: How are you?</div>
+<div class='options'>
+<label><input type='radio' name='q14' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>I'm fine, thank you.</span></label><label><input type='radio' name='q14' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>No problem.</span></label><label><input type='radio' name='q14' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>Yes, I am.</span></label><label><input type='radio' name='q14' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>That's OK.</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>15. Find the correct preposition: The cat is ___ the box.</div>
+<div class='options'>
+<label><input type='radio' name='q15' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>under</span></label><label><input type='radio' name='q15' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>at</span></label><label><input type='radio' name='q15' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>in</span></label><label><input type='radio' name='q15' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>on</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>16. Which is a correct comparative form?</div>
+<div class='options'>
+<label><input type='radio' name='q16' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>most tall</span></label><label><input type='radio' name='q16' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>tallest</span></label><label><input type='radio' name='q16' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>more tall</span></label><label><input type='radio' name='q16' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>taller</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>17. Which one is a correct tag question? You're a student, ___?</div>
+<div class='options'>
+<label><input type='radio' name='q17' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>don't you</span></label><label><input type='radio' name='q17' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>aren't you</span></label><label><input type='radio' name='q17' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>are you</span></label><label><input type='radio' name='q17' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>do you</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>18. Choose the proper article: He is ___ honest boy.</div>
+<div class='options'>
+<label><input type='radio' name='q18' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>the</span></label><label><input type='radio' name='q18' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>an</span></label><label><input type='radio' name='q18' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>a</span></label><label><input type='radio' name='q18' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>no article</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>19. Choose the right word: She is good ___ singing.</div>
+<div class='options'>
+<label><input type='radio' name='q19' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>on</span></label><label><input type='radio' name='q19' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>to</span></label><label><input type='radio' name='q19' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>in</span></label><label><input type='radio' name='q19' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>at</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>20. Complete the phrase: as busy as a ___</div>
+<div class='options'>
+<label><input type='radio' name='q20' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>bee</span></label><label><input type='radio' name='q20' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>cat</span></label><label><input type='radio' name='q20' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>dog</span></label><label><input type='radio' name='q20' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>bird</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>21. What’s the correct plural: 'bus'</div>
+<div class='options'>
+<label><input type='radio' name='q21' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>bus</span></label><label><input type='radio' name='q21' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>buses</span></label><label><input type='radio' name='q21' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>buss</span></label><label><input type='radio' name='q21' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>busies</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>22. Which question fits: ___ is your favorite subject?</div>
+<div class='options'>
+<label><input type='radio' name='q22' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>Which</span></label><label><input type='radio' name='q22' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>How</span></label><label><input type='radio' name='q22' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>Who</span></label><label><input type='radio' name='q22' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>What</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>23. Choose the correct negative: He ___ like broccoli.</div>
+<div class='options'>
+<label><input type='radio' name='q23' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>doesn't</span></label><label><input type='radio' name='q23' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>not</span></label><label><input type='radio' name='q23' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>don't</span></label><label><input type='radio' name='q23' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>isn't</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>24. Choose the correct option: ___ you play the guitar?</div>
+<div class='options'>
+<label><input type='radio' name='q24' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>Shall</span></label><label><input type='radio' name='q24' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>Can</span></label><label><input type='radio' name='q24' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>Are</span></label><label><input type='radio' name='q24' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>Do</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>25. What does 'usually' mean?</div>
+<div class='options'>
+<label><input type='radio' name='q25' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>Always</span></label><label><input type='radio' name='q25' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>Most of the time</span></label><label><input type='radio' name='q25' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>Never</span></label><label><input type='radio' name='q25' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>Sometimes</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>26. Find the right option: The books ___ on the table.</div>
+<div class='options'>
+<label><input type='radio' name='q26' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>are</span></label><label><input type='radio' name='q26' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>is</span></label><label><input type='radio' name='q26' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>am</span></label><label><input type='radio' name='q26' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>be</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>27. Which of the following is a question word?</div>
+<div class='options'>
+<label><input type='radio' name='q27' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>Why</span></label><label><input type='radio' name='q27' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>Really</span></label><label><input type='radio' name='q27' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>Very</span></label><label><input type='radio' name='q27' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>Many</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>28. Choose the correct word: We go to school ___ foot.</div>
+<div class='options'>
+<label><input type='radio' name='q28' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>with</span></label><label><input type='radio' name='q28' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>at</span></label><label><input type='radio' name='q28' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>by</span></label><label><input type='radio' name='q28' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>on</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>29. Choose the correct sentence:</div>
+<div class='options'>
+<label><input type='radio' name='q29' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>Tom and me is good friend.</span></label><label><input type='radio' name='q29' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>Tom and me are good friends.</span></label><label><input type='radio' name='q29' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>Tom and I is good friends.</span></label><label><input type='radio' name='q29' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>Tom and I are good friends.</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>30. Complete the sentence: ___ name is Lucy. She is my classmate.</div>
+<div class='options'>
+<label><input type='radio' name='q30' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>She</span></label><label><input type='radio' name='q30' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>Her</span></label><label><input type='radio' name='q30' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>Hers</span></label><label><input type='radio' name='q30' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>His</span></label></div>
+</div>
+<button type='button' onclick='gradeQuiz()'>提出する</button>
+</form>
+<div id='result'></div>
+<script>
+const answers = [
+  { num: 1, answer: 'D', correct: 'goes' },
+  { num: 2, answer: 'B', correct: 'children' },
+  { num: 3, answer: 'C', correct: 'A place with books to read or borrow' },
+  { num: 4, answer: 'C', correct: 'are watching' },
+  { num: 5, answer: 'D', correct: 'carrot' },
+  { num: 6, answer: 'B', correct: 'Is' },
+  { num: 7, answer: 'A', correct: 'glad' },
+  { num: 8, answer: 'C', correct: 'go' },
+  { num: 9, answer: 'D', correct: 'a quarter past seven' },
+  { num: 10, answer: 'D', correct: 'late' },
+  { num: 11, answer: 'D', correct: 'play' },
+  { num: 12, answer: 'B', correct: 'ate' },
+  { num: 13, answer: 'D', correct: 'There is a book on the desk.' },
+  { num: 14, answer: 'A', correct: 'I'm fine, thank you.' },
+  { num: 15, answer: 'C', correct: 'in' },
+  { num: 16, answer: 'D', correct: 'taller' },
+  { num: 17, answer: 'B', correct: 'aren't you' },
+  { num: 18, answer: 'B', correct: 'an' },
+  { num: 19, answer: 'D', correct: 'at' },
+  { num: 20, answer: 'A', correct: 'bee' },
+  { num: 21, answer: 'B', correct: 'buses' },
+  { num: 22, answer: 'D', correct: 'What' },
+  { num: 23, answer: 'A', correct: 'doesn't' },
+  { num: 24, answer: 'B', correct: 'Can' },
+  { num: 25, answer: 'B', correct: 'Most of the time' },
+  { num: 26, answer: 'A', correct: 'are' },
+  { num: 27, answer: 'A', correct: 'Why' },
+  { num: 28, answer: 'D', correct: 'on' },
+  { num: 29, answer: 'D', correct: 'Tom and I are good friends.' },
+  { num: 30, answer: 'B', correct: 'Her' },
+];
+
+function gradeQuiz() {
+  let score = 0;
+  document.querySelectorAll(".feedback").forEach(el => el.remove());
+  answers.forEach(a => {
+    const sel = document.querySelector(`input[name='q${a.num}']:checked`);
+    const div = document.querySelectorAll(".question")[a.num - 1];
+    if (sel && sel.value === a.answer) {
+      score++;
+    } else {
+      const fb = document.createElement("div");
+      fb.className = "feedback";
+      fb.innerHTML = "正解は：<span class='incorrect'>" + a.answer + ". " + a.correct + "</span>";
+      div.appendChild(fb);
+    }
+  });
+  document.getElementById("result").innerText = `あなたの得点：${score} / ${answers.length}`;
+
+  const key = location.pathname.split('/').pop() || 'default';
+  const storageURL = 'https://kvdb.io/FrFWQafq3LwK1bVEhs4ER6/' + key;
+  const entry = {
+    score: `${score} / ${answers.length}`,
+    timestamp: new Date().toISOString()
+  };
+  fetch(storageURL)
+    .then(r => r.ok ? r.text() : "[]")
+    .then(t => {
+      let data = [];
+      try { data = JSON.parse(t); if (!Array.isArray(data)) data = []; } catch (e) { data = []; }
+      data.push(entry);
+      return fetch(storageURL, {
+        method: "PUT",
+        body: JSON.stringify(data)
+      });
+    });
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  const popup = document.createElement("div");
+  popup.id = "score-popup";
+  popup.style = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #f0f4ff;
+    padding: 18px 20px;
+    border: 1px solid #ccd;
+    font-size: 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    z-index: 999;
+    width: 320px;
+    font-family: "Segoe UI", sans-serif;
+  `;
+  popup.innerHTML = `
+    <div style="display:flex; justify-content: space-between; align-items: center;">
+      <h4 style="margin: 0; font-size: 18px; color: #003366;">過去の成績</h4>
+      <button style="background-color:#007bff;color:white;border:none;border-radius:6px;padding:4px 10px;cursor:pointer;font-weight:bold;" onclick="this.parentNode.parentNode.remove()">✖</button>
+    </div>
+    <hr style="margin:10px 0;border:none;border-top:1px solid #ccc">
+    <div id="score-log" style="line-height:1.6">読み込み中...</div>
+  `;
+  document.body.appendChild(popup);
+
+  const key = location.pathname.split('/').pop() || 'default';
+  const storageURL = 'https://kvdb.io/FrFWQafq3LwK1bVEhs4ER6/' + key;
+  fetch(storageURL)
+    .then(res => res.text())
+    .then(t => {
+      let entries = JSON.parse(t);
+      if (!Array.isArray(entries)) entries = [entries];
+      const sorted = entries.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+      const log = document.getElementById("score-log");
+      log.innerHTML = `<table style="width:100%; border-collapse: collapse;">
+        ${sorted.map(e => `
+          <tr><td style="padding:6px 4px;"><strong>得点</strong></td><td style="padding:6px 4px;">${e.score}</td></tr>
+          <tr><td style="padding:6px 4px;"><strong>時刻</strong></td><td style="padding:6px 4px;">${new Date(e.timestamp).toLocaleString()}</td></tr>
+          <tr><td colspan="2"><hr style='border:none;border-top:1px solid #ddd;'></td></tr>
+        `).join("")}
+      </table>`;
+    })
+    .catch(() => {
+      document.getElementById("score-log").innerText = "記録なし";
+    });
+});
+</script>
+</body>
+</html>
