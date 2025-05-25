@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang='ja'>
+<head>
+  <meta charset='UTF-8'>
+  <title>小学3年生算数テスト 第3セット</title>
+  <style>
+  body { font-family: 'Segoe UI', sans-serif; max-width: 800px; margin: auto; padding: 20px; }
+  h1 { color: #003366; font-size: 28px; }
+  .question { margin-bottom: 28px; padding: 16px; border-radius: 12px; background: #fafbff; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .question-title { font-weight: bold; font-size: 20px; margin-bottom: 8px; }
+  .options label {
+    padding-right: 10px;
+    display: inline-block;
+    margin-right: 40px;
+    margin-top: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    transition: background 0.3s, border 0.3s;
+    cursor: pointer;
+  }
+  .options input[type="radio"]:checked + .opt-prefix + .opt-content {
+    background-color: #e0f0ff;
+    border-radius: 4px;
+  }
+  input[type="radio"]:checked + .opt-prefix + .opt-content {
+    background-color: #e0f0ff;
+    padding: 2px 6px;
+    border-radius: 6px;
+  }
+  .opt-prefix {
+    font-size: 14px;
+    display: inline-block;
+    width: 1.6em;
+    text-align: right;
+  }
+  .opt-content {
+    font-size: 20px;
+    margin-left: 4px;
+    display: inline-block;
+  }
+  .feedback { margin-top: 8px; }
+  .incorrect {
+    display: inline-block;
+    font-size: 18px;
+    background-color: #ffe8e8;
+    border: 2px solid #ff4d4f;
+    border-radius: 6px;
+    padding: 4px 8px;
+  }
+  #result { font-size: 18px; font-weight: bold; margin-top: 20px; }
+</style>
+</head>
+<body>
+  <h1>小学3年生算数テスト 第3セット</h1>
+  <form id='quizForm'>
+<div class='question'>
+<div class='question-title'>1. 商とあまりを求めなさい: 255 ÷ 8 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q1' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>29余り3</span></label><label><input type='radio' name='q1' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>30余り4</span></label><label><input type='radio' name='q1' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>31余り7</span></label><label><input type='radio' name='q1' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>29余り0</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>2. 一辺が15cm の正方形の周の長さは？</div>
+<div class='options'>
+<label><input type='radio' name='q2' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>52</span></label><label><input type='radio' name='q2' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>60</span></label><label><input type='radio' name='q2' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>68</span></label><label><input type='radio' name='q2' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>64</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>3. 次の計算をしなさい: 2 × (29 ÷ 9) = ?</div>
+<div class='options'>
+<label><input type='radio' name='q3' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>9</span></label><label><input type='radio' name='q3' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>8</span></label><label><input type='radio' name='q3' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>4</span></label><label><input type='radio' name='q3' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>6</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>4. 500円を出して291円の品物を買いました。おつりはいくらですか。</div>
+<div class='options'>
+<label><input type='radio' name='q4' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>179円</span></label><label><input type='radio' name='q4' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>239円</span></label><label><input type='radio' name='q4' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>209円</span></label><label><input type='radio' name='q4' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>159円</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>5. 6 m は何 cm ですか。</div>
+<div class='options'>
+<label><input type='radio' name='q5' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>550</span></label><label><input type='radio' name='q5' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>650</span></label><label><input type='radio' name='q5' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>600</span></label><label><input type='radio' name='q5' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>580</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>6. 2 L 696 mL を mL で表すと？</div>
+<div class='options'>
+<label><input type='radio' name='q6' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>2696</span></label><label><input type='radio' name='q6' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>2496</span></label><label><input type='radio' name='q6' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>2896</span></label><label><input type='radio' name='q6' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>2796</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>7. 50円玉を7枚集めると、合計はいくらですか。</div>
+<div class='options'>
+<label><input type='radio' name='q7' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>250円</span></label><label><input type='radio' name='q7' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>300円</span></label><label><input type='radio' name='q7' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>450円</span></label><label><input type='radio' name='q7' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>350円</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>8. 商とあまりを求めなさい: 154 ÷ 4 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q8' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>41余り3</span></label><label><input type='radio' name='q8' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>38余り2</span></label><label><input type='radio' name='q8' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>35余り3</span></label><label><input type='radio' name='q8' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>41余り0</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>9. 縦11cm、横8cm の長方形の面積は？</div>
+<div class='options'>
+<label><input type='radio' name='q9' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>88</span></label><label><input type='radio' name='q9' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>93</span></label><label><input type='radio' name='q9' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>83</span></label><label><input type='radio' name='q9' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>78</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>10. 4 L 499 mL を mL で表すと？</div>
+<div class='options'>
+<label><input type='radio' name='q10' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>4699</span></label><label><input type='radio' name='q10' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>4499</span></label><label><input type='radio' name='q10' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>4299</span></label><label><input type='radio' name='q10' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>4599</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>11. 次の計算をしなさい: 711 ÷ 9 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q11' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>82</span></label><label><input type='radio' name='q11' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>81</span></label><label><input type='radio' name='q11' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>79</span></label><label><input type='radio' name='q11' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>76</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>12. 次の計算をしなさい: 7 × (27 ÷ 2) = ?</div>
+<div class='options'>
+<label><input type='radio' name='q12' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>88</span></label><label><input type='radio' name='q12' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>93</span></label><label><input type='radio' name='q12' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>94</span></label><label><input type='radio' name='q12' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>91</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>13. 次の計算をしなさい: 452 × 6 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q13' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>2692</span></label><label><input type='radio' name='q13' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>2712</span></label><label><input type='radio' name='q13' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>2742</span></label><label><input type='radio' name='q13' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>2682</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>14. 次の計算をしなさい: 916 - 801 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q14' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>119</span></label><label><input type='radio' name='q14' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>129</span></label><label><input type='radio' name='q14' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>124</span></label><label><input type='radio' name='q14' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>115</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>15. 2時間28分 は何分ですか。</div>
+<div class='options'>
+<label><input type='radio' name='q15' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>163</span></label><label><input type='radio' name='q15' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>138</span></label><label><input type='radio' name='q15' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>133</span></label><label><input type='radio' name='q15' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>148</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>16. 3 L 475 mL を mL で表すと？</div>
+<div class='options'>
+<label><input type='radio' name='q16' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>3475</span></label><label><input type='radio' name='q16' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>3375</span></label><label><input type='radio' name='q16' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>3275</span></label><label><input type='radio' name='q16' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>3675</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>17. 次の計算をしなさい: 494 × 6 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q17' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>3014</span></label><label><input type='radio' name='q17' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>2934</span></label><label><input type='radio' name='q17' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>2984</span></label><label><input type='radio' name='q17' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>2964</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>18. 次の計算をしなさい: 945 × 7 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q18' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>6565</span></label><label><input type='radio' name='q18' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>6635</span></label><label><input type='radio' name='q18' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>6595</span></label><label><input type='radio' name='q18' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>6615</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>19. 7時05分 の 50分後 は何時何分ですか。</div>
+<div class='options'>
+<label><input type='radio' name='q19' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>7時55分</span></label><label><input type='radio' name='q19' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>8時00分</span></label><label><input type='radio' name='q19' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>8時05分</span></label><label><input type='radio' name='q19' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>7時45分</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>20. 次の計算をしなさい: 186 ÷ 2 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q20' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>96</span></label><label><input type='radio' name='q20' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>95</span></label><label><input type='radio' name='q20' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>88</span></label><label><input type='radio' name='q20' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>93</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>21. 一辺が18cm の正方形の周の長さは？</div>
+<div class='options'>
+<label><input type='radio' name='q21' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>80</span></label><label><input type='radio' name='q21' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>72</span></label><label><input type='radio' name='q21' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>68</span></label><label><input type='radio' name='q21' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>64</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>22. 次の計算をしなさい: 603 - 408 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q22' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>181</span></label><label><input type='radio' name='q22' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>176</span></label><label><input type='radio' name='q22' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>195</span></label><label><input type='radio' name='q22' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>211</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>23. 5時20分 の 50分後 は何時何分ですか。</div>
+<div class='options'>
+<label><input type='radio' name='q23' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>6時05分</span></label><label><input type='radio' name='q23' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>6時00分</span></label><label><input type='radio' name='q23' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>6時20分</span></label><label><input type='radio' name='q23' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>6時10分</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>24. 一辺が14cm の正方形の周の長さは？</div>
+<div class='options'>
+<label><input type='radio' name='q24' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>60</span></label><label><input type='radio' name='q24' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>56</span></label><label><input type='radio' name='q24' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>52</span></label><label><input type='radio' name='q24' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>64</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>25. 次の計算をしなさい: 7 × (14 ÷ 8) = ?</div>
+<div class='options'>
+<label><input type='radio' name='q25' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>4</span></label><label><input type='radio' name='q25' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>5</span></label><label><input type='radio' name='q25' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>9</span></label><label><input type='radio' name='q25' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>7</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>26. 商とあまりを求めなさい: 299 ÷ 5 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q26' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>59余り4</span></label><label><input type='radio' name='q26' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>57余り0</span></label><label><input type='radio' name='q26' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>61余り1</span></label><label><input type='radio' name='q26' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>56余り4</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>27. 5時45分 の 45分後 は何時何分ですか。</div>
+<div class='options'>
+<label><input type='radio' name='q27' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>6時20分</span></label><label><input type='radio' name='q27' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>6時25分</span></label><label><input type='radio' name='q27' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>6時30分</span></label><label><input type='radio' name='q27' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>6時40分</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>28. 縦14cm、横11cm の長方形の面積は？</div>
+<div class='options'>
+<label><input type='radio' name='q28' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>159</span></label><label><input type='radio' name='q28' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>144</span></label><label><input type='radio' name='q28' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>154</span></label><label><input type='radio' name='q28' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>164</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>29. 次の計算をしなさい: 372 + 465 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q29' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>817</span></label><label><input type='radio' name='q29' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>821</span></label><label><input type='radio' name='q29' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>832</span></label><label><input type='radio' name='q29' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>837</span></label></div>
+</div>
+<div class='question'>
+<div class='question-title'>30. 次の計算をしなさい: 338 × 8 = ?</div>
+<div class='options'>
+<label><input type='radio' name='q30' value='A'> <span class='opt-prefix'>A.</span><span class='opt-content'>2684</span></label><label><input type='radio' name='q30' value='B'> <span class='opt-prefix'>B.</span><span class='opt-content'>2734</span></label><label><input type='radio' name='q30' value='C'> <span class='opt-prefix'>C.</span><span class='opt-content'>2704</span></label><label><input type='radio' name='q30' value='D'> <span class='opt-prefix'>D.</span><span class='opt-content'>2654</span></label></div>
+</div>
+<button type='button' onclick='gradeQuiz()'>提出する</button>
+</form>
+<div id='result'></div>
+<script>
+const answers = [
+  { num: 1, answer: 'C', correct: '31余り7' },
+  { num: 2, answer: 'B', correct: '60' },
+  { num: 3, answer: 'D', correct: '6' },
+  { num: 4, answer: 'C', correct: '209円' },
+  { num: 5, answer: 'C', correct: '600' },
+  { num: 6, answer: 'A', correct: '2696' },
+  { num: 7, answer: 'D', correct: '350円' },
+  { num: 8, answer: 'B', correct: '38余り2' },
+  { num: 9, answer: 'A', correct: '88' },
+  { num: 10, answer: 'B', correct: '4499' },
+  { num: 11, answer: 'C', correct: '79' },
+  { num: 12, answer: 'D', correct: '91' },
+  { num: 13, answer: 'B', correct: '2712' },
+  { num: 14, answer: 'D', correct: '115' },
+  { num: 15, answer: 'D', correct: '148' },
+  { num: 16, answer: 'A', correct: '3475' },
+  { num: 17, answer: 'D', correct: '2964' },
+  { num: 18, answer: 'D', correct: '6615' },
+  { num: 19, answer: 'A', correct: '7時55分' },
+  { num: 20, answer: 'D', correct: '93' },
+  { num: 21, answer: 'B', correct: '72' },
+  { num: 22, answer: 'C', correct: '195' },
+  { num: 23, answer: 'D', correct: '6時10分' },
+  { num: 24, answer: 'B', correct: '56' },
+  { num: 25, answer: 'D', correct: '7' },
+  { num: 26, answer: 'A', correct: '59余り4' },
+  { num: 27, answer: 'C', correct: '6時30分' },
+  { num: 28, answer: 'C', correct: '154' },
+  { num: 29, answer: 'D', correct: '837' },
+  { num: 30, answer: 'C', correct: '2704' },
+];
+
+function gradeQuiz() {
+  let score = 0;
+  document.querySelectorAll(".feedback").forEach(el => el.remove());
+  answers.forEach(a => {
+    const sel = document.querySelector(`input[name='q${a.num}']:checked`);
+    const div = document.querySelectorAll(".question")[a.num - 1];
+    if (sel && sel.value === a.answer) {
+      score++;
+    } else {
+      const fb = document.createElement("div");
+      fb.className = "feedback";
+      fb.innerHTML = "正解は：<span class='incorrect'>" + a.answer + ". " + a.correct + "</span>";
+      div.appendChild(fb);
+    }
+  });
+  document.getElementById("result").innerText = `あなたの得点：${score} / ${answers.length}`;
+
+  const key = location.pathname.split('/').pop() || 'default';
+  const storageURL = 'https://kvdb.io/FrFWQafq3LwK1bVEhs4ER6/' + key;
+  const entry = {
+    score: `${score} / ${answers.length}`,
+    timestamp: new Date().toISOString()
+  };
+  fetch(storageURL)
+    .then(r => r.ok ? r.text() : "[]")
+    .then(t => {
+      let data = [];
+      try { data = JSON.parse(t); if (!Array.isArray(data)) data = []; } catch (e) { data = []; }
+      data.push(entry);
+      return fetch(storageURL, {
+        method: "PUT",
+        body: JSON.stringify(data)
+      });
+    });
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  const popup = document.createElement("div");
+  popup.id = "score-popup";
+  popup.style = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #f0f4ff;
+    padding: 18px 20px;
+    border: 1px solid #ccd;
+    font-size: 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    z-index: 999;
+    width: 320px;
+    font-family: "Segoe UI", sans-serif;
+  `;
+  popup.innerHTML = `
+    <div style="display:flex; justify-content: space-between; align-items: center;">
+      <h4 style="margin: 0; font-size: 18px; color: #003366;">過去の成績</h4>
+      <button style="background-color:#007bff;color:white;border:none;border-radius:6px;padding:4px 10px;cursor:pointer;font-weight:bold;" onclick="this.parentNode.parentNode.remove()">✖</button>
+    </div>
+    <hr style="margin:10px 0;border:none;border-top:1px solid #ccc">
+    <div id="score-log" style="line-height:1.6">読み込み中...</div>
+  `;
+  document.body.appendChild(popup);
+
+  const key = location.pathname.split('/').pop() || 'default';
+  const storageURL = 'https://kvdb.io/FrFWQafq3LwK1bVEhs4ER6/' + key;
+  fetch(storageURL)
+    .then(res => res.text())
+    .then(t => {
+      let entries = JSON.parse(t);
+      if (!Array.isArray(entries)) entries = [entries];
+      const sorted = entries.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+      const log = document.getElementById("score-log");
+      log.innerHTML = `<table style="width:100%; border-collapse: collapse;">
+        ${sorted.map(e => `
+          <tr><td style="padding:6px 4px;"><strong>得点</strong></td><td style="padding:6px 4px;">${e.score}</td></tr>
+          <tr><td style="padding:6px 4px;"><strong>時刻</strong></td><td style="padding:6px 4px;">${new Date(e.timestamp).toLocaleString()}</td></tr>
+          <tr><td colspan="2"><hr style='border:none;border-top:1px solid #ddd;'></td></tr>
+        `).join("")}
+      </table>`;
+    })
+    .catch(() => {
+      document.getElementById("score-log").innerText = "記録なし";
+    });
+});
+</script>
+</body>
+</html>
