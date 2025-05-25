@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>西班牙语卡片播放器</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 1.5em 1em 2em;
+      background-color: #fefefe;
+      box-sizing: border-box;
+    }
+    h2 {
+      margin-top: 0.5em;
+      margin-bottom: 1em;
+      font-size: 1.6em;
+    }
+    #card {
+      border: 1px solid #ccc;
+      padding: 1.2em;
+      border-radius: 10px;
+      margin-bottom: 1em;
+      background: #f9f9f9;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+    #es {
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: 0.5em;
+      display: block;
+      text-align: center;
+    }
+    #zh {
+      font-size: 1.4em;
+      margin-bottom: 1.5em;
+      display: block;
+      text-align: center;
+    }
+    #exp {
+      font-size: 1em;
+      color: #555;
+      text-align: left;
+      line-height: 1.4;
+    }
+    audio {
+      width: 100%;
+      max-width: 500px;
+      margin: 1em 0;
+    }
+    .controls {
+      display: flex;
+      gap: 1em;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 2em;
+    }
+    button {
+      padding: 0.7em 1.4em;
+      font-size: 1.1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <h2>西班牙语100句卡片播放器</h2>
+  <div id="card">
+    <span id="es"></span>
+    <span id="zh"></span>
+    <div id="exp"></div>
+  </div>
+
+  <audio id="audio" controls></audio>
+
+  <div class="controls">
+    <button onclick="prev()">⏮ 上一条</button>
+    <button onclick="playPause()">⏯ 播放/暂停</button>
+    <button onclick="next()">⏭ 下一条</button>
+  </div>
+
+  <script>
+    const data = [{"es": "Hola.", "zh": "你好。", "exp": "Hola 是西班牙语中最常见的打招呼方式，意思是“你好”，适用于任何时间场合。"}, {"es": "Buenos días.", "zh": "早上好。", "exp": "Buenos días 表示“早上好”，用于上午打招呼。对应下午和晚上分别是 Buenas tardes 和 Buenas noches。"}, {"es": "Buenas tardes.", "zh": "下午好。", "exp": "❶ Buenas 是形容词 bueno 的复数阴性形式，表示“好的”；❷ tardes 是“下午”。合起来是“下午好”。"}, {"es": "Buenas noches.", "zh": "晚上好/晚安。", "exp": "❶ Buenas 是“好的”；❷ noches 是“晚上”或“夜晚”；用于晚上见面或道别时说“晚上好”或“晚安”。"}, {"es": "¿Cómo estás?", "zh": "你好吗？", "exp": "❶ ¿Cómo...? 是疑问副词，表示“怎么样”；❷ estás 是 estar（处于）的“你”形式。整句为“你好吗？”"}, {"es": "Estoy bien, gracias.", "zh": "我很好，谢谢。", "exp": "Estoy bien 表示“我很好”；gracias 表示“谢谢”。"}, {"es": "Mucho gusto.", "zh": "很高兴认识你。", "exp": "❶ Mucho 是“很多”；❷ gusto 是“高兴、愉悦”；合起来表示“很高兴认识你”。"}, {"es": "Encantado.", "zh": "幸会。", "exp": "Encantado（男）/Encantada（女）是“很荣幸”的表达，用于初次见面，含义为“幸会”。"}, {"es": "Adiós.", "zh": "再见。", "exp": "Adiós 是“再见”，最常用的告别方式。也可说：Hasta luego（回头见），Hasta mañana（明天见）。"}, {"es": "Hasta luego.", "zh": "回头见。", "exp": "Hasta luego 字面意思是“直到之后”，用作“回头见”或“下次见”。"}, {"es": "Por favor.", "zh": "请。", "exp": "❶ Por 是介词，表示“为了”；❷ favor 是“恩惠、帮忙”；合起来构成礼貌请求“请”。可置于句首或句尾。"}, {"es": "Gracias.", "zh": "谢谢。", "exp": "Gracias 表示“谢谢”。你也可以说 Muchas gracias（非常感谢），更礼貌。"}, {"es": "Muchas gracias.", "zh": "非常感谢。", "exp": "❶ Muchas 是“很多”；❷ gracias 是“感谢”；合起来是“非常感谢”。比单独说 Gracias 更礼貌。"}, {"es": "De nada.", "zh": "不客气。", "exp": "❶ De 表示“来自”；❷ nada 是“没有/没什么”；整句字面是“没什么”，引申为“不客气”。"}, {"es": "Perdón.", "zh": "抱歉/对不起。", "exp": "Perdón 是“抱歉/劳驾”的常用表达，可用于请求别人让路、打断、请人重复。"}, {"es": "Lo siento.", "zh": "很抱歉。", "exp": "❶ Lo 是中性宾语，❷ siento 来自动词 sentir（感觉、遗憾），整句意思是“对不起”。"}, {"es": "¿Puede ayudarme?", "zh": "你能帮我吗？", "exp": "¿Puede ayudarme? 表示“你能帮我吗？” ayudar 是“帮助”，me 表示“我”。"}, {"es": "No entiendo.", "zh": "我不明白。", "exp": "No entiendo 表示“我不明白”；entender 是“理解”，no 是否定。"}, {"es": "¿Habla inglés?", "zh": "你会说英语吗？", "exp": "¿Habla inglés? 表示“你会说英语吗？” hablar 是“说”，inglés 是“英语”。"}, {"es": "Estoy perdido/a.", "zh": "我迷路了。", "exp": "Estoy perdido（男）/ perdida（女）表示“我迷路了”。适用于向他人求助方向时。"}, {"es": "¿Dónde está el baño?", "zh": "洗手间在哪里？", "exp": "❶ dónde está 表示“……在哪里” 是常见疑问句型；❷ el baño 表示“洗手间”。类似地，你可以说：¿Dónde está el restaurante?（餐厅在哪里）"}, {"es": "¿Dónde está la estación?", "zh": "车站在哪里？", "exp": "❶ ¿Dónde está 表示“……在哪里”；❷ 后面的部分是你要找的地点，比如 baño（厕所）、restaurante（餐厅）。"}, {"es": "¿Cómo llego a esta dirección?", "zh": "到这个地址怎么走？", "exp": "¿Cómo llego a...? 表示“我如何到达……？”是常用的问路句型。"}, {"es": "A la derecha.", "zh": "向右。", "exp": "A la derecha 表示“向右”；左转是 A la izquierda。"}, {"es": "A la izquierda.", "zh": "向左。", "exp": "A la izquierda 表示“向左”；右转是 A la derecha。"}, {"es": "Siga recto por un minuto.", "zh": "请直走一分钟。", "exp": "siga 是动词 seguir（继续、跟着）命令式；recto 表示直走；por un minuto 是时间状语，表示“一分钟”。"}, {"es": "Está muy cerca de aquí.", "zh": "距离这里很近。", "exp": "❶ está 是 estar（处于）的第三人称形式；❷ muy 表示“非常”；❸ cerca de 表示“靠近”；❹ aquí 是“这里”。整句表示“离这里很近”。"}, {"es": "Está muy lejos, necesita tomar un transporte.", "zh": "很远，需要坐车。", "exp": "❶ está muy lejos 表示“很远”；❷ necesita 是“您/他/她需要”；❸ tomar un transporte 表示“乘坐交通工具”。整句表示“太远了，需要搭车”。"}, {"es": "¿Cuánto se tarda en llegar?", "zh": "到那里需要多久？", "exp": "❶ ¿Cuánto se tarda...? 表示“需要多久”；❷ en llegar 表示“到达”。整句是问路或交通时常用表达。"}, {"es": "¿Está lejos de aquí?", "zh": "离这里远吗？", "exp": "❶ ¿Está...? 表示“……在吗/是吗？”；❷ lejos de 表示“远离”；❸ aquí 是“这里”。整句表示“离这里远吗？”"}, {"es": "Necesito un taxi.", "zh": "我需要一辆出租车。", "exp": "❶ necesito 是“我需要”；❷ un taxi 表示“一辆出租车”。整句可用于叫车、求助。"}, {"es": "¿Cuánto cuesta hasta el aeropuerto?", "zh": "去机场多少钱？", "exp": "❶ ¿Cuánto cuesta 表示“多少钱”；❷ 后面的 esto / pasaje 等是你要询价的对象。"}, {"es": "¿Dónde está la parada de autobús?", "zh": "公交车站在哪里？", "exp": "❶ ¿Dónde está 表示“……在哪里”；❷ 后面的部分是你要找的地点，比如 baño（厕所）、restaurante（餐厅）。"}, {"es": "¿Este tren va a Lima?", "zh": "这列火车去利马吗？", "exp": "❶ ¿Este tren...? 表示“这列火车……吗？”；❷ va a 是“前往”；❸ Lima 是地名。整句表示“这车去利马吗？”"}, {"es": "¿A qué hora sale?", "zh": "几点出发？", "exp": "❶ ¿A qué hora...? 表示“几点”；❷ sale 来自动词 salir（出发）。整句问“几点出发？”"}, {"es": "¿A qué hora llega?", "zh": "几点到达？", "exp": "❶ ¿A qué hora...? 表示“几点”；❷ llega 来自动词 llegar（到达）。整句问“几点到？”"}, {"es": "Un billete a Cusco, por favor.", "zh": "请给我一张去库斯科的票。", "exp": "Por favor 表示“请”，用于表达请求或客气语气，可放在句首或句尾。"}, {"es": "¿Cuánto cuesta el pasaje?", "zh": "票价是多少？", "exp": "❶ ¿Cuánto cuesta 表示“多少钱”；❷ 后面的 esto / pasaje 等是你要询价的对象。"}, {"es": "¿Este asiento está ocupado?", "zh": "这个座位有人吗？", "exp": "❶ este asiento 是“这个座位”；❷ está ocupado 表示“被占了”；整句可用于找座位时询问。"}, {"es": "Quiero alquilar un coche.", "zh": "我想租辆车。", "exp": "❶ quiero 是“我想要”；❷ alquilar 是“租”；❸ un coche 是“一辆车”。整句表示“我想租车”。"}, {"es": "¿Tiene habitaciones disponibles?", "zh": "有空房吗？", "exp": "❶ ¿Tiene...? 表示“您有……吗？”；❷ habitaciones 是“房间”；❸ disponibles 表示“可用的”。整句问“有空房吗？”"}, {"es": "Quiero una habitación individual.", "zh": "我想要单人房。", "exp": "una habitación 表示“一间房间”，individual 是“单人”，doble 是“双人”。"}, {"es": "¿Cuánto cuesta por noche?", "zh": "每晚多少钱？", "exp": "❶ ¿Cuánto cuesta 表示“多少钱”；❷ 后面的 esto / pasaje 等是你要询价的对象。"}, {"es": "¿El desayuno está incluido?", "zh": "包含早餐吗？", "exp": "❶ el desayuno 是“早餐”；❷ está incluido 表示“包含”。整句是“早餐包含吗？”"}, {"es": "¿Dónde está el ascensor?", "zh": "电梯在哪里？", "exp": "❶ ¿Dónde está 表示“……在哪里”；❷ 后面的部分是你要找的地点，比如 baño（厕所）、restaurante（餐厅）。"}, {"es": "La llave, por favor.", "zh": "请给我钥匙。", "exp": "Por favor 表示“请”，用于表达请求或客气语气，可放在句首或句尾。"}, {"es": "¿A qué hora es el check-out?", "zh": "几点退房？", "exp": "❶ ¿A qué hora...? 是固定问句，表示“几点”；❷ es 是“是”；❸ el check-out 指“退房”。整句问“什么时候退房？”"}, {"es": "Hay un problema con la habitación.", "zh": "房间有问题。", "exp": "❶ hay 表示“有”；❷ problema 是“问题”；❸ habitación 是“房间”。整句表示“房间有问题”。"}, {"es": "¿Puedo ver la habitación primero?", "zh": "我可以先看看房间吗？", "exp": "❶ ¿Puedo...? 表示“我可以……吗？”；❷ ver 是“看”；整句表示“我能先看看房间吗？”"}, {"es": "Necesito una toalla.", "zh": "我需要一条毛巾。", "exp": "❶ necesito 是“我需要”；❷ una toalla 是“一条毛巾”。常用于住宿时向前台请求。"}, {"es": "Una mesa para uno, por favor.", "zh": "请给我一人桌。", "exp": "Por favor 表示“请”，用于表达请求或客气语气，可放在句首或句尾。"}, {"es": "¿Tiene menú en inglés?", "zh": "有英文菜单吗？", "exp": "❶ ¿Tiene...? 是“您有……吗？”；❷ menú 是“菜单”；❸ en inglés 是“英文的”。整句问“有英文菜单吗？”"}, {"es": "Quiero esto.", "zh": "我要这个。", "exp": "❶ quiero 是动词 querer（想要）的第一人称形式；❷ esto 表示“这个”；整句意思是“我要这个”，购物或点餐时常用。"}, {"es": "¿Qué recomienda?", "zh": "你推荐什么？", "exp": "¿Qué recomienda? 表示“你推荐什么？”，常用于餐馆、商店中向服务员询问建议。"}, {"es": "Sin picante, por favor.", "zh": "请不要辣。", "exp": "Por favor 表示“请”，用于表达请求或客气语气，可放在句首或句尾。"}, {"es": "Soy alérgico a los cacahuetes.", "zh": "我对花生过敏。", "exp": "❶ soy 是“我是”；❷ alérgico 是“过敏的”；❸ a los cacahuetes 表示“对花生”；整句是“我对花生过敏”。"}, {"es": "La cuenta, por favor.", "zh": "请结账。", "exp": "Por favor 表示“请”，用于表达请求或客气语气，可放在句首或句尾。"}, {"es": "¿Aceptan tarjeta de crédito?", "zh": "你们接受信用卡吗？", "exp": "tarjeta de crédito 是“信用卡”，¿Aceptan tarjeta de crédito? 表示“你们收信用卡吗？”"}, {"es": "Estaba delicioso.", "zh": "非常好吃。", "exp": "❶ Estaba 是“过去时”表示“很”；❷ delicioso 表示“美味的”。整句表示“真好吃”，用来夸赞餐食。"}, {"es": "¿Tiene comida vegetariana?", "zh": "有素食吗？", "exp": "❶ comida vegetariana 是“素食”；❷ ¿Tiene...? 是“您有……吗？”整句问“有素食吗？”"}, {"es": "¿Cuánto cuesta esto?", "zh": "这个多少钱？", "exp": "cuánto cuesta 是问价格，“多少钱”；esto 表示“这个”。你也可以说：¿Cuánto cuesta ese libro?（那本书多少钱）"}, {"es": "¿Tiene otro color?", "zh": "有其他颜色吗？", "exp": "❶ otro color 表示“其他颜色”；❷ tiene 表示“有”。整句问“有别的颜色吗？”常用于购物场景。"}, {"es": "Es muy caro.", "zh": "太贵了。", "exp": "Es muy caro 表示“太贵了”；便宜可以说 Es barato。"}, {"es": "¿Puede hacerme un descuento?", "zh": "能便宜点吗？", "exp": "❶ hacerme un descuento 表示“给我打个折”；❷ ¿Puede...? 是“您可以……吗？”整句表示“可以优惠点吗？”"}, {"es": "Estoy solo mirando.", "zh": "我只是看看。", "exp": "❶ estoy 表示“我正在”；❷ solo 表示“只是/仅仅”；❸ mirando 是 mirar（看）的现在分词。整句是购物时常用“我只是看看”。"}, {"es": "Lo compro.", "zh": "我要买了。", "exp": "❶ lo 表示“这个”；❷ compro 是“我买”。整句为“我买了”。用于购物确认。"}, {"es": "¿Puedo pagar con tarjeta?", "zh": "可以刷卡吗？", "exp": "¿Puedo pagar con tarjeta? 表示“我可以刷卡吗？” con 表示“使用……”"}, {"es": "¿Dónde está la caja?", "zh": "收银台在哪里？", "exp": "❶ ¿Dónde está 表示“……在哪里”；❷ 后面的部分是你要找的地点，比如 baño（厕所）、restaurante（餐厅）。"}, {"es": "Necesito una bolsa.", "zh": "我需要一个袋子。", "exp": "❶ necesito 是动词 necesitar（需要）的一人称形式，表示“我需要”；❷ una 表示“一个”；❸ bolsa 是“袋子、包”。整句可用于购物时请求袋子。"}, {"es": "¿Está hecho a mano?", "zh": "这是手工做的吗？", "exp": "❶ hecho a mano 表示“手工制作”；❷ está 是“是”。整句问“是手工做的吗？”"}, {"es": "¿De dónde eres?", "zh": "你来自哪里？", "exp": "❶ ¿De dónde eres? 表示“你来自哪里？”；❷ de 是“从”；❸ eres 是“你是”。常用介绍。"}, {"es": "Soy de China.", "zh": "我来自中国。", "exp": "❶ soy 是“我是”；❷ de 表示“来自”；❸ China 是国家名。整句是“我来自中国”。"}, {"es": "¿Cuántos años tienes?", "zh": "你几岁了？", "exp": "❶ ¿Cuántos años tienes? 表示“你几岁？”；❷ años 是“岁”；❸ tienes 是“你有”。西语中年龄表达用“有”。"}, {"es": "Tengo 30 años.", "zh": "我30岁了。", "exp": "❶ tengo 是“我有”；❷ 30 años 表示“三十岁”。西语年龄表达为“我有……岁”。"}, {"es": "¿A qué te dedicas?", "zh": "你是做什么工作的？", "exp": "❶ ¿A qué te dedicas? 表示“你是做什么的？”；dedicar 是“从事”。常用于寒暄了解职业。"}, {"es": "Soy turista.", "zh": "我是游客。", "exp": "❶ soy 是“我是”；❷ turista 表示“游客”。整句可用于介绍身份。"}, {"es": "Estoy viajando por Sudamérica.", "zh": "我正在环游南美洲。", "exp": "❶ estoy 是“我正在”；❷ viajando 是“旅行”；❸ por Sudamérica 是“在南美”。整句表示“我在南美旅行”。"}, {"es": "Es mi primera vez aquí.", "zh": "我第一次来这儿。", "exp": "❶ es 是“是”；❷ mi primera vez 是“第一次”；❸ aquí 是“这里”。整句表示“我第一次来这”。"}, {"es": "¿Puedes repetirlo, por favor?", "zh": "请你重复一遍好吗？", "exp": "Por favor 表示“请”，用于表达请求或客气语气，可放在句首或句尾。"}, {"es": "¿Puedes hablar más despacio?", "zh": "你能说慢一点吗？", "exp": "❶ ¿Puedes...? 是“你可以……吗”；❷ hablar 是“说”；❸ más despacio 表示“更慢”。整句请求对方说慢点。"}, {"es": "¡Ayuda!", "zh": "救命！", "exp": "¡Ayuda! 表示“救命！”是紧急情况下最简明直接的呼救方式。"}, {"es": "Llama a la policía.", "zh": "叫警察。", "exp": "❶ llama 是“叫”；❷ a la policía 是“警察”；整句为“叫警察”，用于紧急求助。"}, {"es": "Llama a una ambulancia.", "zh": "叫救护车。", "exp": "una ambulancia 是“救护车”；llamar a una ambulancia 表示“叫救护车”。"}, {"es": "Me siento mal.", "zh": "我不舒服。", "exp": "❶ me siento 是反身动词 sentirese 的形式，表示“我感觉……”；❷ mal 是“不舒服”；整句为“我不舒服”。"}, {"es": "Me duele la cabeza.", "zh": "我头痛。", "exp": "Me duele 表示“我……疼”，例如 la cabeza（头）、el estómago（胃）等。"}, {"es": "He perdido mi pasaporte.", "zh": "我的护照丢了。", "exp": "He perdido 表示“我丢了……”，如 mi pasaporte（我的护照）。"}, {"es": "Me han robado.", "zh": "我被偷了。", "exp": "❶ Me 是反身代词，表示“我”；❷ han robado 是现在完成时，由 han（他们/有人）+ robado（偷）组成，意思是“被偷了”；整句表示“我被偷了”，适用于紧急情况报警或求助。"}, {"es": "¿Dónde está la farmacia más cercana?", "zh": "最近的药店在哪里？", "exp": "❶ ¿Dónde está 表示“……在哪里”；❷ 后面的部分是你要找的地点，比如 baño（厕所）、restaurante（餐厅）。"}, {"es": "Necesito un médico.", "zh": "我需要看医生。", "exp": "❶ necesito 表示“我需要”；❷ un médico 是“一位医生”；用于身体不适时求助。"}, {"es": "Está bien.", "zh": "没关系/好的。", "exp": "❶ Está 来自动词 estar，表示状态；❷ bien 表示“好、没问题”；整句表示“好的”、“没关系”。"}, {"es": "No hay problema.", "zh": "没问题。", "exp": "❶ no hay 表示“没有”；❷ problema 是“问题”；整句为“没问题”，回应别人请求时常用。"}, {"es": "¿Qué significa esta palabra?", "zh": "这个词是什么意思？", "exp": "❶ ¿Qué significa...? 表示“……是什么意思”；❷ esta palabra 是“这个词”。整句用于请教词义。"}, {"es": "¿Puede escribirlo, por favor?", "zh": "能写下来吗？", "exp": "Por favor 表示“请”，用于表达请求或客气语气，可放在句首或句尾。"}, {"es": "¿Hay wifi aquí?", "zh": "这里有无线网吗？", "exp": "❶ ¿Hay...? 表示“有没有？”；❷ wifi 是通用词；❸ aquí 是“这里”。整句问“这有无线吗？”"}, {"es": "¿Cuál es la contraseña del wifi?", "zh": "无线密码是多少？", "exp": "❶ ¿Cuál es...? 表示“哪一个是？”；❷ contraseña 是“密码”；❸ del wifi 是“WiFi 的”。"}, {"es": "Estoy aprendiendo español.", "zh": "我在学西班牙语。", "exp": "❶ estoy 是“我正在”；❷ aprendiendo 是“学习”；❸ español 是“西班牙语”。整句表示“我在学西语”。"}, {"es": "Hablo un poco de español.", "zh": "我会一点西班牙语。", "exp": "❶ hablo 是“我说”；❷ un poco de 是“一点”；❸ español 是“西班牙语”。整句为“我会一点西语”。"}, {"es": "¿Puede tomarme una foto?", "zh": "能帮我拍张照吗？", "exp": "❶ ¿Puede...? 表示“您可以……吗”；❷ tomarme una foto 是“帮我拍照”；常用于游客请求合照。"}, {"es": "¡Buen viaje!", "zh": "祝你旅途愉快！", "exp": "¡Buen viaje! 表示“祝你旅途愉快”，常用于送别或启程时的祝福语。"}];
+
+    let index = 0;
+    const audio = document.getElementById("audio");
+    const es = document.getElementById("es");
+    const zh = document.getElementById("zh");
+    const exp = document.getElementById("exp");
+
+    function updateCard() {
+      const item = data[index];
+      es.textContent = item.es;
+      zh.textContent = item.zh;
+      exp.textContent = item.exp;
+      audio.src = `clips/${String(index + 1).padStart(3, '0')}.mp3`;
+      audio.play();
+    }
+
+    function next() {
+      if (index < data.length - 1) {
+        index++;
+        updateCard();
+      }
+    }
+
+    function prev() {
+      if (index > 0) {
+        index--;
+        updateCard();
+      }
+    }
+
+    function playPause() {
+      if (audio.paused) audio.play();
+      else audio.pause();
+    }
+
+    audio.addEventListener('ended', () => {
+      if (index < data.length - 1) {
+        index++;
+        updateCard();
+      }
+    });
+
+    updateCard();
+  </script>
+</body>
+</html>
