@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      background: #f4f6fb;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      margin-top: 40px;
+    }
+
+    h1 {
+      font-size: 26px;
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+    }
+
+    .question {
+      margin-bottom: 28px;
+      padding: 20px;
+      border-radius: 12px;
+      background: #f8faff;
+      border: 1px solid #dde3ef;
+    }
+
+    .question-title {
+      font-weight: 600;
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .option-label {
+      display: flex;
+      align-items: center;
+      border: 2px solid transparent;
+      border-radius: 10px;
+      background: #eef2f9;
+      padding: 10px 14px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .option-label:hover {
+      background: #dbe7ff;
+    }
+
+    .option-label input[type="radio"] {
+      display: none;
+    }
+
+    .option-label.selected {
+      background-color: #cce4ff !important;
+      border-color: #3390ff;
+    }
+
+    .opt-prefix {
+      font-weight: bold;
+      margin-right: 8px;
+      color: #333;
+    }
+
+    .opt-content {
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 30px;
+      display: block;
+      width: 100%;
+      background: #3390ff;
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #2273d6;
+    }
+
+    #result {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 30px;
+      text-align: center;
+      color: #2e8b57;
+    }
+
+    .feedback {
+      margin-top: 10px;
+    }
+
+    .incorrect {
+      background-color: #ffe8e8;
+      border: 2px solid #ff4d4f;
+      border-radius: 6px;
+      padding: 4px 8px;
+      display: inline-block;
+    }
+
+    #score-popup {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #ffffff;
+      padding: 20px;
+      border: 1px solid #ccd;
+      font-size: 16px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      z-index: 999;
+      width: 340px;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    #score-popup h4 {
+      margin: 0;
+      font-size: 18px;
+      color: #003366;
+    }
+
+    #score-popup button {
+      background-color: #ccc;
+      color: #333;
+      border: none;
+      border-radius: 6px;
+      padding: 4px 10px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        margin-top: 20px;
+        padding: 16px;
+      }
+
+      #score-popup {
+        width: 90%;
+        left: 5%;
+        right: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>{{ title }}</h1>
+    <form id="quizForm">
+      {% for q in questions %}
+      <div class="question">
+        <div class="question-title">{{ q.index }}. {{ q.question }}</div>
+        <div class="options">
+          {% for opt in q.options %}
+          <label class="option-label">
+            <input type="radio" name="q{{ q.index }}" value="{{ opt.letter }}">
+            <span class="opt-prefix">{{ opt.letter }}.</span>
+            <span class="opt-content">{{ opt.text }}</span>
+          </label>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+      <button type="button" onclick="gradeQuiz()">提出する</button>
+    </form>
+    <div id="result"></div>
+  </div>
+
+  <div id="score-popup">
+    <div style="display:flex; justify-content: space-between; align-items: center;">
+      <h4>過去の成績</h4>
+      <button onclick="this.parentNode.parentNode.remove()">✖</button>
+    </div>
+    <hr style="margin:10px 0; border:none; border-top:1px solid #ccc">
+    <div id="score-log" style="line-height:1.6">読み込み中...</div>
+  </div>
+
+  <script>
+  const answers = [
+    {% for q in questions %}
+    { num: {{ q.index }}, answer: '{{ q.correct_letter }}', correct: `{{ q.correct_text }}`, question: `{{ q.question }}` },
+    {% endfor %}
+  ];
+
+  function gradeQuiz() {
+    let score = 0;
+    const wrongAnswers = [];
+
+    document.querySelectorAll(".feedback").forEach(el => el.remove());
+
+    answers.forEach(a => {
+      const questionDiv = document.querySelectorAll(".question")[a.num - 1];
+      const selectedInput = document.querySelector(`input[name='q${a.num}']:checked`);
+      const allOptions = questionDiv.querySelectorAll("label.option-label");
+
+      allOptions.forEach(label => label.classList.remove("selected"));
+
+      const optionTexts = Array.from(
+        questionDiv.querySelectorAll("label.option-label .opt-content")
+      ).map(el => el.innerText);
+
+      if (selectedInput) {
+        const selectedLabel = selectedInput.closest("label");
+        selectedLabel.classList.add("selected");
+
+        const selectedLetter = selectedInput.value;
+        const selectedText = selectedLabel.querySelector(".opt-content")?.innerText || "未選択";
+
+        if (selectedLetter === a.answer) {
+          score++;
+        } else {
+          const fb = document.createElement("div");
+          fb.className = "feedback";
+          fb.innerHTML = `正解は：<span class='incorrect'>${a.answer}. ${a.correct}</span>`;
+          questionDiv.appendChild(fb);
+
+          wrongAnswers.push({
+            q: a.question,
+            correct: a.correct,
+            options: optionTexts,
+            wrong_answer: selectedText,
+            date: new Date().toISOString()
+          });
+        }
+      } else {
+        // No selection
+        const fb = document.createElement("div");
+        fb.className = "feedback";
+        fb.innerHTML = `正解は：<span class='incorrect'>${a.answer}. ${a.correct}</span>`;
+        questionDiv.appendChild(fb);
+
+        wrongAnswers.push({
+          q: a.question,
+          correct: a.correct,
+          options: optionTexts,
+          wrong_answer: "未選択",
+          date: new Date().toISOString()
+        });
+      }
+    });
+
+    document.getElementById("result").innerText = `あなたの得点：${score} / ${answers.length}`;
+
+    // Save score
+    const key = location.pathname.split('/').pop() || 'default';
+    const scoreStorageURL = 'https://kvdb.io/FrFWQafq3LwK1bVEhs4ER6/' + key;
+    const scoreEntry = {
+      score: `${score} / ${answers.length}`,
+      timestamp: new Date().toISOString()
+    };
+    fetch(scoreStorageURL)
+      .then(r => r.ok ? r.text() : "[]")
+      .then(t => {
+        let data = [];
+        try { data = JSON.parse(t); if (!Array.isArray(data)) data = []; } catch (e) { data = []; }
+        data.push(scoreEntry);
+        return fetch(scoreStorageURL, {
+          method: "PUT",
+          body: JSON.stringify(data)
+        });
+      });
+
+    // Save wrong questions in quiz-compatible format
+    if (wrongAnswers.length > 0) {
+      const wrongURL = "https://kvdb.io/WitRtAw6rrzZQtarR3gDoW/" + key + "_wrong";
+      fetch(wrongURL)
+        .then(r => r.ok ? r.text() : "[]")
+        .then(t => {
+          let data = [];
+          try { data = JSON.parse(t); if (!Array.isArray(data)) data = []; } catch (e) { data = []; }
+          data.push(...wrongAnswers);
+          return fetch(wrongURL, {
+            method: "PUT",
+            body: JSON.stringify(data)
+          });
+        });
+    }
+  }
+
+  // Style selection on load
+  window.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".options").forEach(group => {
+      group.querySelectorAll("input[type='radio']").forEach(input => {
+        input.addEventListener("change", () => {
+          group.querySelectorAll("label.option-label").forEach(label => {
+            label.classList.remove("selected");
+          });
+          input.closest("label").classList.add("selected");
+        });
+      });
+    });
+
+    // Load past scores
+    const key = location.pathname.split('/').pop() || 'default';
+    const storageURL = 'https://kvdb.io/FrFWQafq3LwK1bVEhs4ER6/' + key;
+    fetch(storageURL)
+      .then(res => res.text())
+      .then(t => {
+        let entries = JSON.parse(t);
+        if (!Array.isArray(entries)) entries = [entries];
+        const sorted = entries.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+        const log = document.getElementById("score-log");
+        log.innerHTML = `<table style="width:100%; border-collapse: collapse;">
+          ${sorted.map(e => `
+            <tr><td style="padding:6px 4px;"><strong>得点</strong></td><td style="padding:6px 4px;">${e.score}</td></tr>
+            <tr><td style="padding:6px 4px;"><strong>時刻</strong></td><td style="padding:6px 4px;">${new Date(e.timestamp).toLocaleString()}</td></tr>
+            <tr><td colspan="2"><hr style='border:none;border-top:1px solid #ddd;'></td></tr>
+          `).join("")}
+        </table>`;
+      })
+      .catch(() => {
+        document.getElementById("score-log").innerText = "記録なし";
+      });
+  });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小学3年生算数テスト 第5セット</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      background: #f4f6fb;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      margin-top: 40px;
+    }
+
+    h1 {
+      font-size: 26px;
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+    }
+
+    .question {
+      margin-bottom: 28px;
+      padding: 20px;
+      border-radius: 12px;
+      background: #f8faff;
+      border: 1px solid #dde3ef;
+    }
+
+    .question-title {
+      font-weight: 600;
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .option-label {
+      display: flex;
+      align-items: center;
+      border: 2px solid transparent;
+      border-radius: 10px;
+      background: #eef2f9;
+      padding: 10px 14px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .option-label:hover {
+      background: #dbe7ff;
+    }
+
+    .option-label input[type="radio"] {
+      display: none;
+    }
+
+    .option-label.selected {
+      background-color: #cce4ff !important;
+      border-color: #3390ff;
+    }
+
+    .opt-prefix {
+      font-weight: bold;
+      margin-right: 8px;
+      color: #333;
+    }
+
+    .opt-content {
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 30px;
+      display: block;
+      width: 100%;
+      background: #3390ff;
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #2273d6;
+    }
+
+    #result {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 30px;
+      text-align: center;
+      color: #2e8b57;
+    }
+
+    .feedback {
+      margin-top: 10px;
+    }
+
+    .incorrect {
+      background-color: #ffe8e8;
+      border: 2px solid #ff4d4f;
+      border-radius: 6px;
+      padding: 4px 8px;
+      display: inline-block;
+    }
+
+    #score-popup {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #ffffff;
+      padding: 20px;
+      border: 1px solid #ccd;
+      font-size: 16px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      z-index: 999;
+      width: 340px;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    #score-popup h4 {
+      margin: 0;
+      font-size: 18px;
+      color: #003366;
+    }
+
+    #score-popup button {
+      background-color: #ccc;
+      color: #333;
+      border: none;
+      border-radius: 6px;
+      padding: 4px 10px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        margin-top: 20px;
+        padding: 16px;
+      }
+
+      #score-popup {
+        width: 90%;
+        left: 5%;
+        right: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>小学3年生算数テスト 第5セット</h1>
+    <form id="quizForm">
+      
+      <div class="question">
+        <div class="question-title">1. 2時間59分 は何分ですか。</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q1" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">189</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q1" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">169</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q1" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">164</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q1" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">179</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">2. 7 m は何 cm ですか。</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q2" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">650</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q2" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">680</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q2" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">720</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q2" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">700</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">3. 次の計算をしなさい: 366 ÷ 6 = ?</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q3" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">63</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q3" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">61</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q3" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">56</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q3" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">66</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">4. 2 m は何 cm ですか。</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q4" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">150</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q4" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">180</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q4" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">200</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q4" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">220</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">5. 2時間2分 は何分ですか。</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q5" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">122</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q5" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">132</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q5" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">107</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q5" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">137</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">6. 次の計算をしなさい: 623 ÷ 7 = ?</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q6" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">92</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q6" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">86</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q6" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">84</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q6" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">89</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">7. 商とあまりを求めなさい: 121 ÷ 7 = ?</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q7" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">14余り3</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q7" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">19余り3</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q7" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">17余り2</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q7" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">14余り5</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">8. 次の計算をしなさい: 994 × 6 = ?</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q8" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">5934</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q8" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">5914</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q8" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">5984</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q8" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">5964</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">9. 3時間4分 は何分ですか。</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q9" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">174</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q9" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">199</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q9" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">184</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q9" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">194</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">10. 一辺が10cm の正方形の周の長さは？</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q10" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">48</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q10" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">32</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q10" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">36</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q10" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">40</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">11. 次の計算をしなさい: 153 ÷ 3 = ?</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q11" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">51</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q11" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">56</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q11" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">48</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q11" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">46</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">12. 次の計算をしなさい: 358 + 466 = ?</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q12" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">831</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q12" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">824</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q12" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">835</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q12" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">804</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">13. 1 L 878 mL を mL で表すと？</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q13" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">1978</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q13" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">1878</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q13" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">1778</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q13" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">1678</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">14. 次の計算をしなさい: 530 + 442 = ?</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q14" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">973</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q14" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">967</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q14" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">983</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q14" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">972</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">15. 次の計算をしなさい: 588 ÷ 7 = ?</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q15" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">89</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q15" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">87</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q15" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">81</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q15" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">84</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">16. 次の計算をしなさい: 373 + 247 = ?</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q16" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">620</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q16" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">614</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q16" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">630</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q16" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">631</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">17. 次の計算をしなさい: 4 × (16 ÷ 6) = ?</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q17" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">5</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q17" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">8</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q17" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">6</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q17" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">11</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">18. 100円玉を3枚集めると、合計はいくらですか。</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q18" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">350円</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q18" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">300円</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q18" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">250円</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q18" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">200円</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">19. 500円を出して218円の品物を買いました。おつりはいくらですか。</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q19" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">332円</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q19" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">312円</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q19" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">232円</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q19" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">282円</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">20. 500円を出して315円の品物を買いました。おつりはいくらですか。</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q20" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">135円</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q20" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">185円</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q20" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">155円</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q20" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">215円</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">21. 次の計算をしなさい: 5 × (13 ÷ 3) = ?</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q21" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">22</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q21" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">17</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q21" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">18</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q21" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">20</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">22. 198 の一の位の数字は何ですか。</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q22" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">0</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q22" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">8</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q22" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">2</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q22" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">5</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">23. 940 の十の位の数字は何ですか。</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q23" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">4</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q23" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">9</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q23" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">1</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q23" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">3</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">24. 商とあまりを求めなさい: 164 ÷ 7 = ?</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q24" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">24余り5</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q24" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">23余り3</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q24" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">25余り1</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q24" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">26余り5</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">25. 商とあまりを求めなさい: 476 ÷ 8 = ?</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q25" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">62余り1</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q25" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">57余り2</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q25" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">62余り5</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q25" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">59余り4</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">26. 1000円を出して202円の品物を買いました。おつりはいくらですか。</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q26" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">828円</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q26" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">848円</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q26" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">798円</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q26" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">748円</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">27. 2時間19分 は何分ですか。</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q27" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">129</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q27" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">149</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q27" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">124</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q27" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">139</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">28. 商とあまりを求めなさい: 285 ÷ 6 = ?</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q28" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">46余り5</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q28" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">44余り4</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q28" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">47余り3</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q28" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">50余り5</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">29. 次の計算をしなさい: 237 × 7 = ?</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q29" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">1629</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q29" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">1659</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q29" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">1639</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q29" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">1689</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">30. 次の計算をしなさい: 6 × (16 ÷ 8) = ?</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q30" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">14</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q30" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">12</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q30" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">9</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q30" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">10</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <button type="button" onclick="gradeQuiz()">提出する</button>
+    </form>
+    <div id="result"></div>
+  </div>
+
+  <div id="score-popup">
+    <div style="display:flex; justify-content: space-between; align-items: center;">
+      <h4>過去の成績</h4>
+      <button onclick="this.parentNode.parentNode.remove()">✖</button>
+    </div>
+    <hr style="margin:10px 0; border:none; border-top:1px solid #ccc">
+    <div id="score-log" style="line-height:1.6">読み込み中...</div>
+  </div>
+
+  <script>
+  const answers = [
+    
+    { num: 1, answer: 'D', correct: `179`, question: `2時間59分 は何分ですか。` },
+    
+    { num: 2, answer: 'D', correct: `700`, question: `7 m は何 cm ですか。` },
+    
+    { num: 3, answer: 'B', correct: `61`, question: `次の計算をしなさい: 366 ÷ 6 = ?` },
+    
+    { num: 4, answer: 'C', correct: `200`, question: `2 m は何 cm ですか。` },
+    
+    { num: 5, answer: 'A', correct: `122`, question: `2時間2分 は何分ですか。` },
+    
+    { num: 6, answer: 'D', correct: `89`, question: `次の計算をしなさい: 623 ÷ 7 = ?` },
+    
+    { num: 7, answer: 'C', correct: `17余り2`, question: `商とあまりを求めなさい: 121 ÷ 7 = ?` },
+    
+    { num: 8, answer: 'D', correct: `5964`, question: `次の計算をしなさい: 994 × 6 = ?` },
+    
+    { num: 9, answer: 'C', correct: `184`, question: `3時間4分 は何分ですか。` },
+    
+    { num: 10, answer: 'D', correct: `40`, question: `一辺が10cm の正方形の周の長さは？` },
+    
+    { num: 11, answer: 'A', correct: `51`, question: `次の計算をしなさい: 153 ÷ 3 = ?` },
+    
+    { num: 12, answer: 'B', correct: `824`, question: `次の計算をしなさい: 358 + 466 = ?` },
+    
+    { num: 13, answer: 'B', correct: `1878`, question: `1 L 878 mL を mL で表すと？` },
+    
+    { num: 14, answer: 'D', correct: `972`, question: `次の計算をしなさい: 530 + 442 = ?` },
+    
+    { num: 15, answer: 'D', correct: `84`, question: `次の計算をしなさい: 588 ÷ 7 = ?` },
+    
+    { num: 16, answer: 'A', correct: `620`, question: `次の計算をしなさい: 373 + 247 = ?` },
+    
+    { num: 17, answer: 'B', correct: `8`, question: `次の計算をしなさい: 4 × (16 ÷ 6) = ?` },
+    
+    { num: 18, answer: 'B', correct: `300円`, question: `100円玉を3枚集めると、合計はいくらですか。` },
+    
+    { num: 19, answer: 'D', correct: `282円`, question: `500円を出して218円の品物を買いました。おつりはいくらですか。` },
+    
+    { num: 20, answer: 'B', correct: `185円`, question: `500円を出して315円の品物を買いました。おつりはいくらですか。` },
+    
+    { num: 21, answer: 'D', correct: `20`, question: `次の計算をしなさい: 5 × (13 ÷ 3) = ?` },
+    
+    { num: 22, answer: 'B', correct: `8`, question: `198 の一の位の数字は何ですか。` },
+    
+    { num: 23, answer: 'A', correct: `4`, question: `940 の十の位の数字は何ですか。` },
+    
+    { num: 24, answer: 'B', correct: `23余り3`, question: `商とあまりを求めなさい: 164 ÷ 7 = ?` },
+    
+    { num: 25, answer: 'D', correct: `59余り4`, question: `商とあまりを求めなさい: 476 ÷ 8 = ?` },
+    
+    { num: 26, answer: 'C', correct: `798円`, question: `1000円を出して202円の品物を買いました。おつりはいくらですか。` },
+    
+    { num: 27, answer: 'D', correct: `139`, question: `2時間19分 は何分ですか。` },
+    
+    { num: 28, answer: 'C', correct: `47余り3`, question: `商とあまりを求めなさい: 285 ÷ 6 = ?` },
+    
+    { num: 29, answer: 'B', correct: `1659`, question: `次の計算をしなさい: 237 × 7 = ?` },
+    
+    { num: 30, answer: 'B', correct: `12`, question: `次の計算をしなさい: 6 × (16 ÷ 8) = ?` },
+    
+  ];
+
+  function gradeQuiz() {
+    let score = 0;
+    const wrongAnswers = [];
+
+    document.querySelectorAll(".feedback").forEach(el => el.remove());
+
+    answers.forEach(a => {
+      const questionDiv = document.querySelectorAll(".question")[a.num - 1];
+      const selectedInput = document.querySelector(`input[name='q${a.num}']:checked`);
+      const allOptions = questionDiv.querySelectorAll("label.option-label");
+
+      allOptions.forEach(label => label.classList.remove("selected"));
+
+      if (selectedInput) {
+        const selectedLabel = selectedInput.closest("label");
+        selectedLabel.classList.add("selected");
+
+        const selectedLetter = selectedInput.value;
+        if (selectedLetter === a.answer) {
+          score++;
+        } else {
+          const selectedText = selectedLabel.querySelector(".opt-content")?.innerText || "未選択";
+          const fb = document.createElement("div");
+          fb.className = "feedback";
+          fb.innerHTML = `正解は：<span class='incorrect'>${a.answer}. ${a.correct}</span>`;
+          questionDiv.appendChild(fb);
+
+          wrongAnswers.push({
+            num: a.num,
+            question: a.question,
+            selected: selectedText,
+            correct: a.correct,
+            correct_letter: a.answer,
+            timestamp: new Date().toISOString()
+          });
+        }
+      } else {
+        // No selection
+        const fb = document.createElement("div");
+        fb.className = "feedback";
+        fb.innerHTML = `正解は：<span class='incorrect'>${a.answer}. ${a.correct}</span>`;
+        questionDiv.appendChild(fb);
+
+        wrongAnswers.push({
+          num: a.num,
+          question: a.question,
+          selected: "未選択",
+          correct: a.correct,
+          correct_letter: a.answer,
+          timestamp: new Date().toISOString()
+        });
+      }
+    });
+
+    document.getElementById("result").innerText = `あなたの得点：${score} / ${answers.length}`;
+
+    // Save score
+    const key = location.pathname.split('/').pop() || 'default';
+    const scoreStorageURL = 'https://kvdb.io/FrFWQafq3LwK1bVEhs4ER6/' + key;
+    const scoreEntry = {
+      score: `${score} / ${answers.length}`,
+      timestamp: new Date().toISOString()
+    };
+    fetch(scoreStorageURL)
+      .then(r => r.ok ? r.text() : "[]")
+      .then(t => {
+        let data = [];
+        try { data = JSON.parse(t); if (!Array.isArray(data)) data = []; } catch (e) { data = []; }
+        data.push(scoreEntry);
+        return fetch(scoreStorageURL, {
+          method: "PUT",
+          body: JSON.stringify(data)
+        });
+      });
+
+    // Save wrong answers
+    if (wrongAnswers.length > 0) {
+      const wrongURL = "https://kvdb.io/WitRtAw6rrzZQtarR3gDoW/" + key + "_wrong";
+      fetch(wrongURL)
+        .then(r => r.ok ? r.text() : "[]")
+        .then(t => {
+          let data = [];
+          try { data = JSON.parse(t); if (!Array.isArray(data)) data = []; } catch (e) { data = []; }
+          data.push(...wrongAnswers);
+          return fetch(wrongURL, {
+            method: "PUT",
+            body: JSON.stringify(data)
+          });
+        });
+    }
+  }
+
+  // Reapply selected class when option is selected (mobile/PC safe)
+  window.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".options").forEach(group => {
+      group.querySelectorAll("input[type='radio']").forEach(input => {
+        input.addEventListener("change", () => {
+          group.querySelectorAll("label.option-label").forEach(label => {
+            label.classList.remove("selected");
+          });
+          input.closest("label").classList.add("selected");
+        });
+      });
+    });
+
+    // Load score log
+    const key = location.pathname.split('/').pop() || 'default';
+    const storageURL = 'https://kvdb.io/FrFWQafq3LwK1bVEhs4ER6/' + key;
+    fetch(storageURL)
+      .then(res => res.text())
+      .then(t => {
+        let entries = JSON.parse(t);
+        if (!Array.isArray(entries)) entries = [entries];
+        const sorted = entries.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+        const log = document.getElementById("score-log");
+        log.innerHTML = `<table style="width:100%; border-collapse: collapse;">
+          ${sorted.map(e => `
+            <tr><td style="padding:6px 4px;"><strong>得点</strong></td><td style="padding:6px 4px;">${e.score}</td></tr>
+            <tr><td style="padding:6px 4px;"><strong>時刻</strong></td><td style="padding:6px 4px;">${new Date(e.timestamp).toLocaleString()}</td></tr>
+            <tr><td colspan="2"><hr style='border:none;border-top:1px solid #ddd;'></td></tr>
+          `).join("")}
+        </table>`;
+      })
+      .catch(() => {
+        document.getElementById("score-log").innerText = "記録なし";
+      });
+  });
+</script>
+
+</body>
+</html>

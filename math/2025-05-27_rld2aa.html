@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小学校3年生算数テスト（上級）第1セット</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      background: #f4f6fb;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      margin-top: 40px;
+    }
+
+    h1 {
+      font-size: 26px;
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+    }
+
+    .question {
+      margin-bottom: 28px;
+      padding: 20px;
+      border-radius: 12px;
+      background: #f8faff;
+      border: 1px solid #dde3ef;
+    }
+
+    .question-title {
+      font-weight: 600;
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .option-label {
+      display: flex;
+      align-items: center;
+      border: 2px solid transparent;
+      border-radius: 10px;
+      background: #eef2f9;
+      padding: 10px 14px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .option-label:hover {
+      background: #dbe7ff;
+    }
+
+    .option-label input[type="radio"] {
+      display: none;
+    }
+
+    .option-label.selected {
+      background-color: #cce4ff !important;
+      border-color: #3390ff;
+    }
+
+    .opt-prefix {
+      font-weight: bold;
+      margin-right: 8px;
+      color: #333;
+    }
+
+    .opt-content {
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 30px;
+      display: block;
+      width: 100%;
+      background: #3390ff;
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #2273d6;
+    }
+
+    #result {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 30px;
+      text-align: center;
+      color: #2e8b57;
+    }
+
+    .feedback {
+      margin-top: 10px;
+    }
+
+    .incorrect {
+      background-color: #ffe8e8;
+      border: 2px solid #ff4d4f;
+      border-radius: 6px;
+      padding: 4px 8px;
+      display: inline-block;
+    }
+
+    #score-popup {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #ffffff;
+      padding: 20px;
+      border: 1px solid #ccd;
+      font-size: 16px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      z-index: 999;
+      width: 340px;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    #score-popup h4 {
+      margin: 0;
+      font-size: 18px;
+      color: #003366;
+    }
+
+    #score-popup button {
+      background-color: #ccc;
+      color: #333;
+      border: none;
+      border-radius: 6px;
+      padding: 4px 10px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        margin-top: 20px;
+        padding: 16px;
+      }
+
+      #score-popup {
+        width: 90%;
+        left: 5%;
+        right: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>小学校3年生算数テスト（上級）第1セット</h1>
+    <form id="quizForm">
+      
+      <div class="question">
+        <div class="question-title">1. 6時の長い針の位置は？</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q1" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">6</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q1" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">9</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q1" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">3</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q1" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">12</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">2. 500円玉2枚、100円玉3枚、50円玉1枚。合計は？</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q2" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">1000円</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q2" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">1150円</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q2" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">1350円</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q2" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">1250円</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">3. 長方形のたてが3倍、よこが同じなら面積は？</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q3" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">わからない</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q3" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">3倍になる</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q3" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">同じ</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q3" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">6倍になる</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">4. 1辺が4cmの立方体の体積は？</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q4" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">100㎤</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q4" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">64㎤</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q4" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">16㎤</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q4" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">32㎤</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">5. 12×3を分配法則で表すと？</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q5" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">10×3 + 2×3</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q5" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">6×6</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q5" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">3×12</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q5" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">12×3</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">6. 1/2Lの牛乳パックが5本あります。全部で何L？</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q6" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">2.0L</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q6" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">1.5L</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q6" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">2.5L</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q6" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">3.0L</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">7. 長方形の周りの長さを求めるにはどうすればよい？</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q7" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">たて×2 + よこ×2</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q7" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">たて×よこ</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q7" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">たて+よこ</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q7" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">たて+よこ×2</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">8. 水そうに1分で6L入ります。15分で何L？</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q8" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">60L</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q8" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">45L</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q8" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">100L</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q8" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">90L</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">9. 400円のノートを3冊、800円のペンを2本。合計は？</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q9" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">2800円</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q9" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">2400円</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q9" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">2000円</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q9" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">3000円</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">10. 0.1を10倍すると？</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q10" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">10</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q10" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">1</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q10" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">0.01</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q10" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">0.1</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">11. 2時の長い針の位置は？</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q11" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">2</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q11" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">3</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q11" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">12</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q11" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">6</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">12. 3時間15分は何分？</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q12" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">195分</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q12" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">180分</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q12" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">200分</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q12" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">185分</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">13. たて8cm、横3cmの長方形の面積は？</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q13" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">24㎠</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q13" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">11㎠</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q13" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">30㎠</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q13" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">48㎠</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">14. 1本120円のえんぴつを3本と、150円の消しゴムを2こ買いました。合計は？</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q14" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">600円</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q14" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">720円</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q14" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">510円</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q14" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">660円</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">15. 3時のとき、短い針と長い針の間の角はおよそ何度？</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q15" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">60度</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q15" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">120度</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q15" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">180度</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q15" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">90度</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">16. 1m50cmは何cm？</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q16" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">105cm</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q16" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">140cm</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q16" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">115cm</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q16" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">150cm</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">17. 三角形の内角の合計は？</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q17" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">90度</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q17" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">120度</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q17" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">360度</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q17" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">180度</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">18. 1つ250円のおにぎりを4つ買ったら？</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q18" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">1000円</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q18" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">1250円</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q18" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">500円</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q18" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">750円</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">19. 5人で同じ量ずつ分けると1人に8個ずつあたります。もとの数は？</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q19" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">45</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q19" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">48</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q19" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">35</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q19" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">40</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">20. 1500mは何km？</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q20" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">1.5km</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q20" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">0.15km</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q20" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">15km</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q20" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">150km</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">21. 1辺が12cmの正方形のまわりの長さは？</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q21" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">36cm</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q21" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">24cm</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q21" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">144cm</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q21" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">48cm</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">22. 図形の対称を表す言葉で正しいものは？</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q22" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">線対称</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q22" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">線平面</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q22" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">反線形</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q22" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">対象線</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">23. 1辺が5cmの正方形4つをつなげた形の面積は？</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q23" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">100㎠</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q23" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">80㎠</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q23" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">50㎠</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q23" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">25㎠</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">24. 3つの数の合計が72です。1つ目は2つ目の2倍、3つ目は1つ目の半分です。1つ目の数は？</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q24" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">24</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q24" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">32</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q24" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">40</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q24" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">36</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">25. 3人で2個ずつお菓子をもらいました。残り4個です。もともとは？</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q25" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">8個</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q25" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">12個</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q25" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">14個</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q25" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">10個</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">26. 表でAさんが月曜日から金曜日に歩いた歩数は合計で何歩？（1000, 1200, 1100, 900, 1300）</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q26" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">4500歩</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q26" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">6000歩</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q26" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">5500歩</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q26" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">5000歩</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">27. 1年は何日？（うるう年でない）</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q27" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">365日</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q27" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">364日</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q27" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">360日</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q27" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">366日</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">28. 4人で分けると1人に7個。2人で分けると？</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q28" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">14個</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q28" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">28個</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q28" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">10個</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q28" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">8個</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">29. 1周400mのトラックを3周走ると何km？</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q29" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">0.8km</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q29" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">1.2km</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q29" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">120m</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q29" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">1.5km</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <div class="question">
+        <div class="question-title">30. 6人で分けると1人8ページ。全部で？</div>
+        <div class="options">
+          
+          <label class="option-label">
+            <input type="radio" name="q30" value="A">
+            <span class="opt-prefix">A.</span>
+            <span class="opt-content">36ページ</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q30" value="B">
+            <span class="opt-prefix">B.</span>
+            <span class="opt-content">56ページ</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q30" value="C">
+            <span class="opt-prefix">C.</span>
+            <span class="opt-content">42ページ</span>
+          </label>
+          
+          <label class="option-label">
+            <input type="radio" name="q30" value="D">
+            <span class="opt-prefix">D.</span>
+            <span class="opt-content">48ページ</span>
+          </label>
+          
+        </div>
+      </div>
+      
+      <button type="button" onclick="gradeQuiz()">提出する</button>
+    </form>
+    <div id="result"></div>
+  </div>
+
+  <div id="score-popup">
+    <div style="display:flex; justify-content: space-between; align-items: center;">
+      <h4>過去の成績</h4>
+      <button onclick="this.parentNode.parentNode.remove()">✖</button>
+    </div>
+    <hr style="margin:10px 0; border:none; border-top:1px solid #ccc">
+    <div id="score-log" style="line-height:1.6">読み込み中...</div>
+  </div>
+
+  <script>
+  const answers = [
+    
+    { num: 1, answer: 'D', correct: `12`, question: `6時の長い針の位置は？` },
+    
+    { num: 2, answer: 'C', correct: `1350円`, question: `500円玉2枚、100円玉3枚、50円玉1枚。合計は？` },
+    
+    { num: 3, answer: 'B', correct: `3倍になる`, question: `長方形のたてが3倍、よこが同じなら面積は？` },
+    
+    { num: 4, answer: 'B', correct: `64㎤`, question: `1辺が4cmの立方体の体積は？` },
+    
+    { num: 5, answer: 'A', correct: `10×3 + 2×3`, question: `12×3を分配法則で表すと？` },
+    
+    { num: 6, answer: 'C', correct: `2.5L`, question: `1/2Lの牛乳パックが5本あります。全部で何L？` },
+    
+    { num: 7, answer: 'A', correct: `たて×2 + よこ×2`, question: `長方形の周りの長さを求めるにはどうすればよい？` },
+    
+    { num: 8, answer: 'D', correct: `90L`, question: `水そうに1分で6L入ります。15分で何L？` },
+    
+    { num: 9, answer: 'A', correct: `2800円`, question: `400円のノートを3冊、800円のペンを2本。合計は？` },
+    
+    { num: 10, answer: 'B', correct: `1`, question: `0.1を10倍すると？` },
+    
+    { num: 11, answer: 'C', correct: `12`, question: `2時の長い針の位置は？` },
+    
+    { num: 12, answer: 'A', correct: `195分`, question: `3時間15分は何分？` },
+    
+    { num: 13, answer: 'A', correct: `24㎠`, question: `たて8cm、横3cmの長方形の面積は？` },
+    
+    { num: 14, answer: 'D', correct: `660円`, question: `1本120円のえんぴつを3本と、150円の消しゴムを2こ買いました。合計は？` },
+    
+    { num: 15, answer: 'D', correct: `90度`, question: `3時のとき、短い針と長い針の間の角はおよそ何度？` },
+    
+    { num: 16, answer: 'D', correct: `150cm`, question: `1m50cmは何cm？` },
+    
+    { num: 17, answer: 'D', correct: `180度`, question: `三角形の内角の合計は？` },
+    
+    { num: 18, answer: 'A', correct: `1000円`, question: `1つ250円のおにぎりを4つ買ったら？` },
+    
+    { num: 19, answer: 'D', correct: `40`, question: `5人で同じ量ずつ分けると1人に8個ずつあたります。もとの数は？` },
+    
+    { num: 20, answer: 'A', correct: `1.5km`, question: `1500mは何km？` },
+    
+    { num: 21, answer: 'D', correct: `48cm`, question: `1辺が12cmの正方形のまわりの長さは？` },
+    
+    { num: 22, answer: 'A', correct: `線対称`, question: `図形の対称を表す言葉で正しいものは？` },
+    
+    { num: 23, answer: 'A', correct: `100㎠`, question: `1辺が5cmの正方形4つをつなげた形の面積は？` },
+    
+    { num: 24, answer: 'B', correct: `32`, question: `3つの数の合計が72です。1つ目は2つ目の2倍、3つ目は1つ目の半分です。1つ目の数は？` },
+    
+    { num: 25, answer: 'D', correct: `10個`, question: `3人で2個ずつお菓子をもらいました。残り4個です。もともとは？` },
+    
+    { num: 26, answer: 'C', correct: `5500歩`, question: `表でAさんが月曜日から金曜日に歩いた歩数は合計で何歩？（1000, 1200, 1100, 900, 1300）` },
+    
+    { num: 27, answer: 'A', correct: `365日`, question: `1年は何日？（うるう年でない）` },
+    
+    { num: 28, answer: 'A', correct: `14個`, question: `4人で分けると1人に7個。2人で分けると？` },
+    
+    { num: 29, answer: 'B', correct: `1.2km`, question: `1周400mのトラックを3周走ると何km？` },
+    
+    { num: 30, answer: 'D', correct: `48ページ`, question: `6人で分けると1人8ページ。全部で？` },
+    
+  ];
+
+  function gradeQuiz() {
+    let score = 0;
+    const wrongAnswers = [];
+
+    document.querySelectorAll(".feedback").forEach(el => el.remove());
+
+    answers.forEach(a => {
+      const questionDiv = document.querySelectorAll(".question")[a.num - 1];
+      const selectedInput = document.querySelector(`input[name='q${a.num}']:checked`);
+      const allOptions = questionDiv.querySelectorAll("label.option-label");
+
+      allOptions.forEach(label => label.classList.remove("selected"));
+
+      const optionTexts = Array.from(
+        questionDiv.querySelectorAll("label.option-label .opt-content")
+      ).map(el => el.innerText);
+
+      if (selectedInput) {
+        const selectedLabel = selectedInput.closest("label");
+        selectedLabel.classList.add("selected");
+
+        const selectedLetter = selectedInput.value;
+        const selectedText = selectedLabel.querySelector(".opt-content")?.innerText || "未選択";
+
+        if (selectedLetter === a.answer) {
+          score++;
+        } else {
+          const fb = document.createElement("div");
+          fb.className = "feedback";
+          fb.innerHTML = `正解は：<span class='incorrect'>${a.answer}. ${a.correct}</span>`;
+          questionDiv.appendChild(fb);
+
+          wrongAnswers.push({
+            q: a.question,
+            correct: a.correct,
+            options: optionTexts,
+            wrong_answer: selectedText,
+            date: new Date().toISOString()
+          });
+        }
+      } else {
+        // No selection
+        const fb = document.createElement("div");
+        fb.className = "feedback";
+        fb.innerHTML = `正解は：<span class='incorrect'>${a.answer}. ${a.correct}</span>`;
+        questionDiv.appendChild(fb);
+
+        wrongAnswers.push({
+          q: a.question,
+          correct: a.correct,
+          options: optionTexts,
+          wrong_answer: "未選択",
+          date: new Date().toISOString()
+        });
+      }
+    });
+
+    document.getElementById("result").innerText = `あなたの得点：${score} / ${answers.length}`;
+
+    // Save score
+    const key = location.pathname.split('/').pop() || 'default';
+    const scoreStorageURL = 'https://kvdb.io/FrFWQafq3LwK1bVEhs4ER6/' + key;
+    const scoreEntry = {
+      score: `${score} / ${answers.length}`,
+      timestamp: new Date().toISOString()
+    };
+    fetch(scoreStorageURL)
+      .then(r => r.ok ? r.text() : "[]")
+      .then(t => {
+        let data = [];
+        try { data = JSON.parse(t); if (!Array.isArray(data)) data = []; } catch (e) { data = []; }
+        data.push(scoreEntry);
+        return fetch(scoreStorageURL, {
+          method: "PUT",
+          body: JSON.stringify(data)
+        });
+      });
+
+    // Save wrong questions in quiz-compatible format
+    if (wrongAnswers.length > 0) {
+      const wrongURL = "https://kvdb.io/WitRtAw6rrzZQtarR3gDoW/" + key + "_wrong";
+      fetch(wrongURL)
+        .then(r => r.ok ? r.text() : "[]")
+        .then(t => {
+          let data = [];
+          try { data = JSON.parse(t); if (!Array.isArray(data)) data = []; } catch (e) { data = []; }
+          data.push(...wrongAnswers);
+          return fetch(wrongURL, {
+            method: "PUT",
+            body: JSON.stringify(data)
+          });
+        });
+    }
+  }
+
+  // Style selection on load
+  window.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".options").forEach(group => {
+      group.querySelectorAll("input[type='radio']").forEach(input => {
+        input.addEventListener("change", () => {
+          group.querySelectorAll("label.option-label").forEach(label => {
+            label.classList.remove("selected");
+          });
+          input.closest("label").classList.add("selected");
+        });
+      });
+    });
+
+    // Load past scores
+    const key = location.pathname.split('/').pop() || 'default';
+    const storageURL = 'https://kvdb.io/FrFWQafq3LwK1bVEhs4ER6/' + key;
+    fetch(storageURL)
+      .then(res => res.text())
+      .then(t => {
+        let entries = JSON.parse(t);
+        if (!Array.isArray(entries)) entries = [entries];
+        const sorted = entries.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+        const log = document.getElementById("score-log");
+        log.innerHTML = `<table style="width:100%; border-collapse: collapse;">
+          ${sorted.map(e => `
+            <tr><td style="padding:6px 4px;"><strong>得点</strong></td><td style="padding:6px 4px;">${e.score}</td></tr>
+            <tr><td style="padding:6px 4px;"><strong>時刻</strong></td><td style="padding:6px 4px;">${new Date(e.timestamp).toLocaleString()}</td></tr>
+            <tr><td colspan="2"><hr style='border:none;border-top:1px solid #ddd;'></td></tr>
+          `).join("")}
+        </table>`;
+      })
+      .catch(() => {
+        document.getElementById("score-log").innerText = "記録なし";
+      });
+  });
+</script>
+
+
+</body>
+</html>
